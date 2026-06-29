@@ -67,7 +67,7 @@ export default function Home() {
                   letterSpacing: "-0.04em",
                 }}
               >
-                H R<br />Shuvo
+                Shuvo
               </h1>
 
               {/* Title */}

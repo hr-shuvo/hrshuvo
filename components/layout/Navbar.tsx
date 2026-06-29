@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  { label: "About",      href: "/about"      },
-  { label: "Projects",   href: "/projects"   },
-  { label: "Experience", href: "/experience" },
-  { label: "Expertise",  href: "/expertise"  },
+  { label: "ABOUT",      alt: "BIO",    href: "/about"      },
+  { label: "EXPERTISE",  alt: "SKILLS", href: "/expertise"  },
+  { label: "EXPERIENCE", alt: "JOBS",   href: "/experience" },
+  { label: "PROJECTS",   alt: "WORK",   href: "/projects"   },
 ];
 
 export function Navbar() {
@@ -32,7 +32,7 @@ export function Navbar() {
             Shuvo
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — right aligned */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
             {links.map((link) => {
               const active = pathname === link.href || pathname.startsWith(link.href + "/");
@@ -40,48 +40,49 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative text-xs tracking-[0.1em] transition-colors duration-200 py-1 group"
-                  style={{ color: active ? "var(--foreground)" : "var(--muted-color)" }}
+                  className="flex items-center gap-1.5 text-sm tracking-[0.08em] py-1 group transition-opacity duration-200 hover:opacity-100"
+                  style={{ color: "var(--foreground)", opacity: active ? 1 : 0.5, fontWeight: active ? 600 : 400 }}
                 >
-                  {link.label}
                   <span
-                    className="absolute bottom-0 left-0 h-px transition-all duration-300"
-                    style={{
-                      background: "var(--color-accent)",
-                      width: active ? "100%" : "0%",
-                    }}
-                  />
-                  {!active && (
-                    <span className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-300" style={{ background: "var(--border)" }} />
-                  )}
+                    className={`transition-opacity duration-200 ${active ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                  >
+                    [
+                  </span>
+                  <span
+                    className="inline-block overflow-hidden align-middle"
+                    style={{ height: "1em" }}
+                  >
+                    <span
+                      className={`flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] ${active ? "-translate-y-1/2" : "group-hover:-translate-y-1/2"}`}
+                      style={{ height: "2em" }}
+                    >
+                      <span className="block leading-none text-center" style={{ height: "1em" }}>{link.label}</span>
+                      <span className="block leading-none text-center" style={{ height: "1em" }}>{link.alt}</span>
+                    </span>
+                  </span>
+                  <span
+                    className={`transition-opacity duration-200 ${active ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                  >
+                    ]
+                  </span>
                 </Link>
               );
             })}
           </nav>
 
-          <div className="flex items-center gap-4">
-            {/* Desktop: Get in touch CTA */}
-            <a
-              href="mailto:hrshuvo207@gmail.com"
-              className="hidden md:inline-flex items-center text-xs tracking-[0.1em] text-[var(--muted-color)] hover:text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--foreground)] px-3.5 py-1.5 transition-all duration-200"
-            >
-              Get in touch
-            </a>
-
-            {/* Mobile hamburger */}
-            <button
-              className="md:hidden flex flex-col gap-1.5 p-1 text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
-              aria-label={open ? "Close menu" : "Open menu"}
-              onClick={() => setOpen((v) => !v)}
-            >
-              <span className="block w-5 h-px bg-current transition-transform duration-200"
-                style={{ transform: open ? "translateY(4px) rotate(45deg)" : "none" }} />
-              <span className="block w-5 h-px bg-current transition-opacity duration-200"
-                style={{ opacity: open ? 0 : 1 }} />
-              <span className="block w-5 h-px bg-current transition-transform duration-200"
-                style={{ transform: open ? "translateY(-4px) rotate(-45deg)" : "none" }} />
-            </button>
-          </div>
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden flex flex-col gap-1.5 p-1 text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="block w-5 h-px bg-current transition-transform duration-200"
+              style={{ transform: open ? "translateY(4px) rotate(45deg)" : "none" }} />
+            <span className="block w-5 h-px bg-current transition-opacity duration-200"
+              style={{ opacity: open ? 0 : 1 }} />
+            <span className="block w-5 h-px bg-current transition-transform duration-200"
+              style={{ transform: open ? "translateY(-4px) rotate(-45deg)" : "none" }} />
+          </button>
         </div>
       </header>
 
@@ -102,13 +103,6 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <a
-              href="mailto:hrshuvo207@gmail.com"
-              onClick={() => setOpen(false)}
-              className="mt-8 text-sm tracking-[0.06em] text-[var(--color-accent)]"
-            >
-              hrshuvo207@gmail.com
-            </a>
           </nav>
         </div>
       )}
