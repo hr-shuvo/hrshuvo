@@ -21,7 +21,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: "a4aero",
     company: "A4Aero",
-    logoSrc: "/a4aero-logo.png",
+    logoSrc: "/a4aero-logo.jpg",
     logoAccent: "#e11d48",
     role: "Full-Stack Software Engineer",
     type: "Full-time",
