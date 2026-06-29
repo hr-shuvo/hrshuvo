@@ -12,22 +12,24 @@ export function EzduSection() {
       {/* ── Section opening ── */}
       <div className="mx-auto max-w-7xl px-6 pt-24 sm:px-8 md:pt-32 lg:px-12 lg:pt-40">
         <AnimatedSection>
-          <div className="mb-6 flex items-center gap-5">
-            <span className="text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">The thing I quit my job to build</span>
-            <div className="h-px flex-1 bg-[var(--border)]" />
-          </div>
+          <div className="h-px bg-[var(--border)] mb-14" />
           <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <h2
-              className="font-serif tracking-tight text-[var(--foreground)]"
-              style={{
-                fontSize: "clamp(2.4rem, 5vw, 4.5rem)",
-                fontWeight: 600,
-                lineHeight: 1.05,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Ezdu
-            </h2>
+            <div>
+              <p className="mb-3 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">
+                The thing I quit my job to build
+              </p>
+              <h2
+                className="font-serif tracking-tight text-[var(--foreground)]"
+                style={{
+                  fontSize: "clamp(2.4rem, 5vw, 4.5rem)",
+                  fontWeight: 600,
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                Ezdu
+              </h2>
+            </div>
             <a
               href={ezduData.url}
               target="_blank"
@@ -40,7 +42,7 @@ export function EzduSection() {
         </AnimatedSection>
       </div>
 
-      {/* ── Full-bleed dark banner — the manifesto ── */}
+      {/* ── Full-bleed dark banner ── */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -82,7 +84,7 @@ export function EzduSection() {
         </div>
       </motion.div>
 
-      {/* ── The Problem ── editorial long-form, wide margins */}
+      {/* ── The Problem ── */}
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <div className="py-20 lg:py-28">
           <AnimatedSection>
@@ -112,65 +114,43 @@ export function EzduSection() {
           </AnimatedSection>
         </div>
 
-        {/* ── Architecture — technical but restrained ── */}
+        {/* ── Decisions behind the architecture — replaces the diagram ── */}
         <AnimatedSection>
-          <div className="border-t border-[var(--border)] py-16">
-            <p className="mb-10 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Architecture</p>
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5 lg:p-6">
-              <svg viewBox="0 0 480 300" className="w-full h-auto" aria-label="Ezdu architecture">
-                <defs>
-                  <marker id="arr-e" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
-                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--border)" />
-                  </marker>
-                </defs>
-                <rect x="60" y="10" width="130" height="44" rx="6" fill="var(--surface-alt)" stroke="var(--color-accent)" strokeWidth="1.5" />
-                <text x="125" y="29" textAnchor="middle" fontSize="11" fontWeight="500" fill="var(--foreground)" fontFamily="system-ui">Mobile App</text>
-                <text x="125" y="44" textAnchor="middle" fontSize="9" fill="var(--color-accent)" fontFamily="system-ui">Flutter · Primary</text>
-
-                <rect x="290" y="10" width="130" height="44" rx="6" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />
-                <text x="355" y="29" textAnchor="middle" fontSize="11" fill="var(--foreground)" fontFamily="system-ui">Web App</text>
-                <text x="355" y="44" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">Next.js · Companion</text>
-
-                <line x1="140" y1="54" x2="195" y2="106" stroke="var(--color-accent)" strokeWidth="1" markerEnd="url(#arr-e)" />
-                <line x1="340" y1="54" x2="285" y2="106" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr-e)" />
-
-                <rect x="130" y="108" width="220" height="44" rx="6" fill="var(--surface-alt)" stroke="var(--color-accent)" strokeWidth="1.5" />
-                <text x="240" y="127" textAnchor="middle" fontSize="11" fontWeight="500" fill="var(--foreground)" fontFamily="system-ui">.NET Core API</text>
-                <text x="240" y="142" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">REST · Auth · LLM Pipeline</text>
-
-                <rect x="10" y="108" width="100" height="44" rx="6" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />
-                <text x="60" y="127" textAnchor="middle" fontSize="11" fill="var(--foreground)" fontFamily="system-ui">LLM</text>
-                <text x="60" y="142" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">AI Content</text>
-                <line x1="130" y1="130" x2="110" y2="130" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr-e)" />
-
-                <rect x="370" y="108" width="100" height="44" rx="6" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />
-                <text x="420" y="127" textAnchor="middle" fontSize="10" fill="var(--foreground)" fontFamily="system-ui">Push</text>
-                <text x="420" y="142" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">FCM / APNs</text>
-                <line x1="350" y1="130" x2="370" y2="130" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr-e)" />
-
-                <line x1="190" y1="152" x2="110" y2="206" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr-e)" />
-                <line x1="240" y1="152" x2="240" y2="206" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr-e)" />
-                <line x1="290" y1="152" x2="360" y2="206" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr-e)" />
-
-                <rect x="30" y="208" width="130" height="40" rx="6" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />
-                <text x="95" y="225" textAnchor="middle" fontSize="11" fill="var(--foreground)" fontFamily="system-ui">MySQL</text>
-                <text x="95" y="240" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">Primary DB</text>
-
-                <rect x="175" y="208" width="130" height="40" rx="6" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />
-                <text x="240" y="225" textAnchor="middle" fontSize="11" fill="var(--foreground)" fontFamily="system-ui">Redis</text>
-                <text x="240" y="240" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">Cache · Sessions</text>
-
-                <rect x="320" y="208" width="130" height="40" rx="6" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />
-                <text x="385" y="225" textAnchor="middle" fontSize="11" fill="var(--foreground)" fontFamily="system-ui">AWS S3</text>
-                <text x="385" y="240" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">Content · Media</text>
-
-                <text x="240" y="278" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">Mobile-first · Shared API · AI pipeline</text>
-              </svg>
+          <div className="border-t border-[var(--border)] py-20">
+            <div className="grid gap-16 lg:grid-cols-[44%_1fr]">
+              <div>
+                <p className="mb-5 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">
+                  How it&apos;s built
+                </p>
+                <h3
+                  className="font-serif text-[var(--foreground)]"
+                  style={{
+                    fontSize: "clamp(1.3rem, 2.2vw, 1.75rem)",
+                    fontWeight: 500,
+                    lineHeight: 1.3,
+                    letterSpacing: "-0.015em",
+                  }}
+                >
+                  The decisions that shaped the stack.
+                </h3>
+              </div>
+              <div className="space-y-8 lg:pt-11">
+                {ezduData.stackDecisions.map((decision, i) => (
+                  <div key={i} className="border-t border-[var(--border)] pt-6 first:border-0 first:pt-0">
+                    <p className="mb-2 text-sm font-medium text-[var(--foreground)] leading-snug">
+                      {decision.choice}
+                    </p>
+                    <p className="text-sm leading-[1.8] text-[var(--muted-color)]">
+                      {decision.reason}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </AnimatedSection>
 
-        {/* ── What was actually hard — sparse editorial list ── */}
+        {/* ── What was actually hard ── */}
         <AnimatedSection>
           <div className="border-t border-[var(--border)] pt-16 pb-4">
             <p className="mb-14 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">What was actually hard</p>
@@ -182,14 +162,8 @@ export function EzduSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: i * 0.05 }}
-                  className="grid border-b border-[var(--border)] py-8 gap-4 lg:grid-cols-[3rem_1fr_1fr] lg:gap-14"
+                  className="grid border-b border-[var(--border)] py-8 gap-4 lg:grid-cols-[1fr_1fr] lg:gap-14"
                 >
-                  <span
-                    className="font-mono text-[var(--color-accent)] self-start pt-0.5"
-                    style={{ fontSize: "0.75rem", letterSpacing: "0.05em" }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
                   <div>
                     <h4 className="mb-2.5 text-sm font-medium tracking-tight text-[var(--foreground)]">
                       {challenge.title}
@@ -199,7 +173,6 @@ export function EzduSection() {
                     </p>
                   </div>
                   <p className="text-sm leading-[1.8] text-[var(--muted-color)] lg:border-l lg:border-[var(--border)] lg:pl-10">
-                    <span className="text-[var(--color-accent)]">→ </span>
                     {challenge.solved}
                   </p>
                 </motion.div>
@@ -213,7 +186,7 @@ export function EzduSection() {
           <AnimatedSection>
             <p className="mb-16 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">What I know now that I didn&apos;t before</p>
           </AnimatedSection>
-          <div className="space-y-14">
+          <div className="space-y-12">
             {ezduData.lessons.map((lesson, i) => (
               <motion.div
                 key={i}
@@ -221,14 +194,8 @@ export function EzduSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: i * 0.04 }}
-                className="grid gap-6 lg:grid-cols-[3rem_1fr]"
+                className="border-t border-[var(--border)] pt-10"
               >
-                <span
-                  className="font-mono text-[var(--color-accent)] flex-shrink-0 leading-tight self-start pt-1"
-                  style={{ fontSize: "0.75rem", letterSpacing: "0.05em", opacity: 0.5 }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
                 <p
                   className="font-serif text-[var(--foreground)] leading-snug"
                   style={{
@@ -245,27 +212,32 @@ export function EzduSection() {
           </div>
         </div>
 
-        {/* ── Roadmap — restrained, factual ── */}
-        <div className="border-t border-[var(--border)] py-16">
-          <AnimatedSection>
-            <p className="mb-10 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Where it&apos;s going</p>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              {ezduData.roadmap.map((item, i) => (
-                <div key={item.phase}>
-                  <p
-                    className="mb-2 text-xs tracking-[0.08em] font-medium"
-                    style={{ color: i < 2 ? "var(--color-accent)" : "var(--muted-color)" }}
-                  >
-                    {item.phase}
-                  </p>
-                  <p className="text-sm leading-[1.75] text-[var(--muted-color)]">
-                    {item.milestone}
-                  </p>
-                </div>
-              ))}
+        {/* ── Where it's going — prose, not a grid ── */}
+        <AnimatedSection>
+          <div className="border-t border-[var(--border)] py-16">
+            <div className="grid gap-12 lg:grid-cols-[44%_1fr]">
+              <div>
+                <p className="mb-5 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Where it&apos;s going</p>
+                <h3
+                  className="font-serif text-[var(--foreground)]"
+                  style={{
+                    fontSize: "clamp(1.3rem, 2.2vw, 1.75rem)",
+                    fontWeight: 500,
+                    lineHeight: 1.3,
+                    letterSpacing: "-0.015em",
+                  }}
+                >
+                  {ezduData.roadmapStatement.headline}
+                </h3>
+              </div>
+              <div className="lg:pt-11">
+                <p className="text-sm leading-[1.85] text-[var(--muted-color)]">
+                  {ezduData.roadmapStatement.body}
+                </p>
+              </div>
             </div>
-          </AnimatedSection>
-        </div>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

@@ -16,6 +16,25 @@ export const ezduData = {
     body: "Ezdu generates structured, gamified lessons from any academic topic and adapts to how a student is actually progressing. Learning happens on mobile, in short sessions, not at a desk with a textbook. The goal isn't just passing exams — it's retention. The two aren't the same thing, and most tools don't treat them differently.",
   },
 
+  stackDecisions: [
+    {
+      choice: "Flutter as the primary client, not a web app.",
+      reason: "Learning happens in stolen minutes — on the bus, between classes. A web app that requires sitting at a desk was solving the wrong problem. Flutter gave us one codebase that runs on Android and iOS without the feel of a web view.",
+    },
+    {
+      choice: "All business logic in the .NET Core API, not in the clients.",
+      reason: "When Flutter is the primary client and Next.js is the companion, any logic that lives in both places will eventually diverge. Streak calculation, lesson progression, gamification rules — all server-side. The clients render. They don't decide.",
+    },
+    {
+      choice: "MySQL over a NoSQL store.",
+      reason: "Academic content looks unstructured but isn't. Lessons belong to topics, topics to subjects, subjects to curricula. Those relationships are load-bearing. A document store would have made every query a migration in disguise.",
+    },
+    {
+      choice: "LLM pipeline with validation layers, not a prompt-and-ship approach.",
+      reason: "A lesson with one wrong fact destroys trust. The pipeline generates, checks factual structure, validates formatting, and rewrites selectively before anything touches the database. It's slower than a single API call. It's what makes the content usable.",
+    },
+  ],
+
   challenges: [
     {
       title: "Gamification that actually motivates",
@@ -57,10 +76,8 @@ export const ezduData = {
     "Most users will never read an error message, a tooltip, or a modal. Design for the person who skips everything.",
   ],
 
-  roadmap: [
-    { phase: "Shipped", milestone: "Flutter app live on iOS and Android" },
-    { phase: "Shipped", milestone: "LLM content pipeline — lessons and questions generated from any subject" },
-    { phase: "In Progress", milestone: "Teacher dashboard — course creation and per-student tracking" },
-    { phase: "Next", milestone: "Offline-first mobile mode for low-connectivity classrooms" },
-  ],
+  roadmapStatement: {
+    headline: "Two things shipped. Two things in progress.",
+    body: "The Flutter app is live on iOS and Android. The LLM content pipeline is running in production. Next: a teacher dashboard for course creation and per-student tracking. After that: offline-first mobile for low-connectivity classrooms. The sequence is deliberate — teachers are the distribution channel for getting into schools.",
+  },
 };

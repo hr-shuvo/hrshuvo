@@ -9,7 +9,7 @@ export function HeroSection() {
       aria-label="Hero"
       className="relative flex min-h-screen flex-col overflow-hidden pt-14"
     >
-      {/* Very faint warm vignette — not a glow, a mood */}
+      {/* Very faint warm vignette */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -18,11 +18,11 @@ export function HeroSection() {
         }}
       />
 
-      {/* Main content — vertically centered with generous top weight */}
+      {/* Main content — anchored to bottom */}
       <div className="relative flex flex-1 flex-col justify-end pb-20 md:pb-28">
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
 
-          {/* Thin top rule + location — masthead device */}
+          {/* Masthead rule */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -35,7 +35,7 @@ export function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Headline — serif, dominant */}
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export function HeroSection() {
             Ezdu.
           </motion.h1>
 
-          {/* Bottom row: subtext left, scroll cue right */}
+          {/* Subtext + links */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -65,8 +65,8 @@ export function HeroSection() {
               className="max-w-sm leading-relaxed text-[var(--muted-color)]"
               style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)" }}
             >
-              Quit a stable job, built two products from scratch, shipped
-              both. This is the account of how that went.
+              Two products. No co-founder. No funding.
+              Still running. This is how.
             </p>
 
             <div className="flex items-center gap-4">
@@ -88,7 +88,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Stats bar — minimal, typographic */}
+      {/* Bottom bar — product facts, not metrics */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -97,18 +97,18 @@ export function HeroSection() {
       >
         <div className="mx-auto grid max-w-7xl grid-cols-3 divide-x divide-[var(--border)] px-6 sm:px-8 lg:px-12">
           {[
-            { value: "2", label: "live products" },
-            { value: "500+", label: "problems solved" },
-            { value: "2.5 yr", label: "professional work" },
-          ].map((stat) => (
-            <div key={stat.label} className="px-4 py-6 first:pl-0 last:pr-0 sm:px-8">
+            { value: "Ezdu", label: "gamified learning platform" },
+            { value: "Better IELTS", label: "exam preparation" },
+            { value: "One engineer", label: "concept to production" },
+          ].map((item) => (
+            <div key={item.label} className="px-4 py-6 first:pl-0 last:pr-0 sm:px-8">
               <p
                 className="font-serif font-medium leading-none text-[var(--foreground)]"
-                style={{ fontSize: "clamp(1.4rem, 2.5vw, 1.9rem)" }}
+                style={{ fontSize: "clamp(1rem, 2vw, 1.2rem)", letterSpacing: "-0.01em" }}
               >
-                {stat.value}
+                {item.value}
               </p>
-              <p className="mt-1.5 text-xs tracking-[0.08em] text-[var(--muted-color)]">{stat.label}</p>
+              <p className="mt-1.5 text-xs tracking-[0.08em] text-[var(--muted-color)]">{item.label}</p>
             </div>
           ))}
         </div>

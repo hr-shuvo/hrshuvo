@@ -30,10 +30,7 @@ export function ContactSection() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
           {/* Section rule */}
-          <div className="mb-12 flex items-center gap-5">
-            <span className="text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Let&apos;s talk</span>
-            <div className="h-px flex-1 bg-[var(--border)]" />
-          </div>
+          <div className="h-px bg-[var(--border)] mb-14" />
 
           {/* Headline */}
           <h2
@@ -57,21 +54,26 @@ export function ContactSection() {
             </em>
           </h2>
 
-          {/* Body + contact — editorial colophon layout */}
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-            <p className="max-w-md text-sm leading-[1.85] text-[var(--muted-color)]">
-              If you&apos;re building something early-stage, working through a
-              hard technical problem, or need someone who can move between
-              product and engineering without losing context — that&apos;s
-              where I do my best work. Based in Dhaka. Work remotely.
-            </p>
+          {/* Body + contact */}
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-md space-y-4">
+              <p className="text-sm leading-[1.85] text-[var(--muted-color)]">
+                If you&apos;re building something early-stage, working through a
+                hard technical problem, or need someone who can move between
+                product and engineering without losing context — that&apos;s
+                where I do my best work.
+              </p>
+              <p className="text-sm leading-[1.85] text-[var(--muted-color)]">
+                Based in Dhaka. Work remotely.
+              </p>
+            </div>
 
             <div className="flex flex-col gap-6">
               <a
                 href="mailto:hrshuvo207@gmail.com"
-                className="inline-flex items-center gap-2.5 self-start text-sm tracking-[0.04em] text-[var(--foreground)] border-b border-[var(--foreground)] pb-0.5 hover:text-[var(--muted-color)] hover:border-[var(--muted-color)] transition-colors"
+                className="inline-flex items-center gap-2.5 self-start text-base tracking-tight text-[var(--foreground)] border-b border-[var(--foreground)] pb-0.5 hover:text-[var(--muted-color)] hover:border-[var(--muted-color)] transition-colors font-medium"
               >
-                <Mail size={14} />
+                <Mail size={15} />
                 hrshuvo207@gmail.com
               </a>
 
@@ -94,9 +96,6 @@ export function ContactSection() {
                   <LinkedInIcon size={14} />
                   hrshuvo9
                 </a>
-                <span className="text-xs tracking-[0.06em] text-[var(--muted-color)]">
-                  Dhaka, BD
-                </span>
               </div>
             </div>
           </div>
