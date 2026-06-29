@@ -35,10 +35,10 @@ export function Navbar() {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="font-serif text-base font-medium tracking-tight text-[var(--foreground)] hover:text-[var(--color-accent)] transition-colors duration-200"
-            aria-label="Shuvo — home"
+            className="font-serif text-lg font-medium tracking-tight text-[var(--foreground)] hover:text-[var(--color-accent)] transition-colors duration-200"
+            aria-label="sɥuʌo — home"
           >
-            Shuvo
+            sɥuʌo
           </Link>
 
           {/* Desktop nav — right aligned */}

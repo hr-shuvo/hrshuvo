@@ -25,9 +25,9 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hrshuvo.dev"),
+  metadataBase: new URL("https://hrshuvo.site"),
   title: {
-    default: "Shuvo — Software Engineer",
+    default: "sɥuʌo",
     template: "%s | Shuvo",
   },
   description:
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://hrshuvo.dev",
+    url: "https://hrshuvo.site",
     siteName: "Shuvo",
     title: "Shuvo — Engineer & Founder",
     description:
