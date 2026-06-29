@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://hrshuvo.site"),
   title: {
     default: "sɥuʌo",
-    template: "%s | Shuvo",
+    template: "%s | sɥuʌo",
   },
   description:
     "Full-Stack Software Engineer with 2.5+ years building scalable systems and real products. Creator of Ezdu and Better IELTS. Based in Dhaka.",
