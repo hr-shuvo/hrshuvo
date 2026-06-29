@@ -108,7 +108,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* still useful for in-page anchor links on Architecture page */
 }
 
 body {
