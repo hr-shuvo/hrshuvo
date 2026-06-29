@@ -78,9 +78,10 @@ export default function Home() {
             {[
               { label: "Journey", href: "/journey" },
               { label: "Projects", href: "/projects" },
+              { label: "Experience", href: "/experience" },
+              { label: "Education", href: "/education" },
               { label: "Architecture", href: "/architecture" },
               { label: "Philosophy", href: "/philosophy" },
-              { label: "Education", href: "/education" },
               { label: "Contact", href: "/contact" },
             ].map((link) => (
               <Link
