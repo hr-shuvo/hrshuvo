@@ -35,7 +35,7 @@ export function ContactSection() {
               Get In Touch
             </p>
             <h2
-              className="mb-6 font-semibold tracking-tight text-[var(--foreground)]"
+              className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
             >
               Let&apos;s build something.

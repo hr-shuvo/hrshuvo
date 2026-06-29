@@ -37,7 +37,7 @@ export function BeyondSection() {
             The Person
           </p>
           <h2
-            className="mb-6 font-semibold tracking-tight text-[var(--foreground)]"
+            className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"
             style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
           >
             Beyond the code.
@@ -53,8 +53,8 @@ export function BeyondSection() {
             <AnimatedSection key={card.title} delay={i * 0.1}>
               <div className="flex gap-5 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-7 h-full">
                 <div className="mt-0.5 flex-shrink-0">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[rgba(99,102,241,0.1)]">
-                    <card.icon size={20} color="#6366f1" />
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[rgba(245,158,11,0.12)]">
+                    <card.icon size={20} color="var(--color-accent)" />
                   </div>
                 </div>
                 <div>

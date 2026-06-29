@@ -17,7 +17,7 @@ export function EzduSection() {
           </p>
           <div className="mb-16 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <h2
-              className="font-semibold tracking-tight text-[var(--foreground)]"
+              className="font-extrabold tracking-tight text-[var(--foreground)]"
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
             >
               Ezdu
@@ -39,10 +39,10 @@ export function EzduSection() {
             className="mb-16 overflow-hidden rounded-2xl p-10 sm:p-14"
             style={{
               background:
-                "linear-gradient(135deg, #09090b 0%, #18181b 50%, #1e1b4b 100%)",
+                "linear-gradient(135deg, #1c1411 0%, #292118 50%, #3d2c10 100%)",
             }}
           >
-            <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[#818cf8] uppercase">
+            <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--color-accent-light)] uppercase">
               EdTech · Mobile-First · Gamification · AI
             </p>
             <h3 className="mb-4 text-2xl font-semibold text-white sm:text-3xl">
@@ -90,9 +90,9 @@ export function EzduSection() {
                 </defs>
 
                 {/* Mobile App — primary */}
-                <rect x="60" y="10" width="140" height="48" rx="8" fill="var(--surface-alt)" stroke="#6366f1" strokeWidth="2" />
+                <rect x="60" y="10" width="140" height="48" rx="8" fill="var(--surface-alt)" stroke="var(--color-accent)" strokeWidth="2" />
                 <text x="130" y="31" textAnchor="middle" fontSize="11" fontWeight="600" fill="var(--foreground)" fontFamily="system-ui">Mobile App</text>
-                <text x="130" y="47" textAnchor="middle" fontSize="9" fill="#6366f1" fontFamily="system-ui">Flutter · Primary</text>
+                <text x="130" y="47" textAnchor="middle" fontSize="9" fill="var(--color-accent)" fontFamily="system-ui">Flutter · Primary</text>
 
                 {/* Web App — secondary */}
                 <rect x="280" y="10" width="140" height="48" rx="8" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />
@@ -100,11 +100,11 @@ export function EzduSection() {
                 <text x="350" y="47" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">Next.js · Companion</text>
 
                 {/* Arrows to API */}
-                <line x1="150" y1="58" x2="200" y2="112" stroke="#6366f1" strokeWidth="1.5" markerEnd="url(#arrow)" />
+                <line x1="150" y1="58" x2="200" y2="112" stroke="var(--color-accent)" strokeWidth="1.5" markerEnd="url(#arrow)" />
                 <line x1="330" y1="58" x2="280" y2="112" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arrow)" />
 
                 {/* .NET Core API */}
-                <rect x="130" y="114" width="220" height="48" rx="8" fill="var(--surface-alt)" stroke="#6366f1" strokeWidth="2" />
+                <rect x="130" y="114" width="220" height="48" rx="8" fill="var(--surface-alt)" stroke="var(--color-accent)" strokeWidth="2" />
                 <text x="240" y="135" textAnchor="middle" fontSize="11" fontWeight="600" fill="var(--foreground)" fontFamily="system-ui">.NET Core API</text>
                 <text x="240" y="151" textAnchor="middle" fontSize="9" fill="var(--muted-color)" fontFamily="system-ui">REST · Auth · LLM Pipeline</text>
 
@@ -166,7 +166,7 @@ export function EzduSection() {
                   <p className="mb-3 text-sm leading-relaxed text-[var(--muted-color)]">
                     {challenge.description}
                   </p>
-                  <p className="text-xs text-[#6366f1]">
+                  <p className="text-xs text-[var(--color-accent)]">
                     → {challenge.solved}
                   </p>
                 </div>
@@ -188,7 +188,7 @@ export function EzduSection() {
               {ezduData.lessons.map((lesson, i) => (
                 <AnimatedSection key={i} delay={i * 0.07}>
                   <div className="flex items-start gap-4 rounded-xl border border-[var(--border)] bg-[var(--surface)] p-5">
-                    <span className="mt-0.5 font-mono text-sm text-[#6366f1]">
+                    <span className="mt-0.5 font-mono text-sm text-[var(--color-accent)]">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <p className="text-base font-medium text-[var(--foreground)]">
@@ -218,14 +218,14 @@ export function EzduSection() {
                     <div
                       className="relative z-10 h-2.5 w-2.5 flex-shrink-0 rounded-full sm:mb-4"
                       style={{
-                        background: i === 0 ? "#6366f1" : "var(--border)",
+                        background: i === 0 ? "var(--color-accent)" : "var(--border)",
                         border: i === 0 ? "none" : "1px solid var(--border)",
-                        boxShadow: i === 0 ? "0 0 0 4px rgba(99,102,241,0.2)" : "none",
+                        boxShadow: i === 0 ? "0 0 0 4px rgba(245,158,11,0.25)" : "none",
                       }}
                     />
                   </div>
                   <div className="sm:pr-8">
-                    <p className="mb-1 text-xs font-medium text-[#6366f1]">{item.phase}</p>
+                    <p className="mb-1 text-xs font-medium text-[var(--color-accent)]">{item.phase}</p>
                     <p className="text-sm text-[var(--foreground)]">{item.milestone}</p>
                   </div>
                 </div>

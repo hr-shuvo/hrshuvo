@@ -16,7 +16,7 @@ export function HeroSection() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 70% 10%, rgba(99,102,241,0.08) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 50% at 70% 10%, rgba(245,158,11,0.10) 0%, transparent 60%)",
         }}
       />
 
@@ -24,7 +24,7 @@ export function HeroSection() {
         <div className="max-w-4xl">
           {/* Eyebrow */}
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="mb-6 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase"
@@ -34,11 +34,11 @@ export function HeroSection() {
 
           {/* Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="mb-8 font-semibold leading-[1.05] tracking-tight text-[var(--foreground)]"
-            style={{ fontSize: "clamp(3rem, 7vw, 6.5rem)" }}
+            className="mb-8 font-extrabold leading-[1.05] tracking-tight text-[var(--foreground)]"
+            style={{ fontSize: "clamp(3rem, 7vw, 6.5rem)", fontWeight: 800 }}
           >
             I build things
             <br />
@@ -47,7 +47,7 @@ export function HeroSection() {
 
           {/* Subtext */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
             className="mb-12 max-w-xl text-lg leading-relaxed text-[var(--muted-color)] sm:text-xl"
@@ -58,7 +58,7 @@ export function HeroSection() {
               href="https://ezdu.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--foreground)] underline underline-offset-4 decoration-[var(--border)] hover:decoration-[#6366f1] transition-colors"
+              className="text-[var(--foreground)] underline underline-offset-4 decoration-[var(--border)] hover:decoration-[var(--color-accent)] transition-colors"
             >
               Ezdu
             </a>{" "}

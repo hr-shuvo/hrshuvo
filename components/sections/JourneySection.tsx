@@ -16,7 +16,7 @@ export function JourneySection() {
             Background
           </p>
           <h2
-            className="mb-20 font-semibold tracking-tight text-[var(--foreground)]"
+            className="mb-20 font-extrabold tracking-tight text-[var(--foreground)]"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
           >
             Not a biography.
@@ -39,7 +39,7 @@ export function JourneySection() {
                 <div className="flex flex-col gap-4 md:flex-row md:gap-0">
                   {/* Year */}
                   <div className="flex-shrink-0 md:w-36">
-                    <span className="font-mono text-sm font-medium text-[#6366f1]">
+                    <span className="font-mono text-sm font-medium text-[var(--color-accent)]">
                       {item.year}
                     </span>
                   </div>
@@ -51,7 +51,7 @@ export function JourneySection() {
                       whileInView={{ scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: i * 0.08 + 0.2, type: "spring", stiffness: 200 }}
-                      className="h-3 w-3 rounded-full border-2 border-[#6366f1] bg-[var(--background)]"
+                      className="h-3 w-3 rounded-full border-2 border-[var(--color-accent)] bg-[var(--background)]"
                       style={{ marginTop: "3px" }}
                     />
                   </div>

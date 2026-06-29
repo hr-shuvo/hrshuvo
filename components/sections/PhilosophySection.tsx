@@ -68,7 +68,7 @@ export function PhilosophySection() {
             How I Think
           </p>
           <h2
-            className="mb-6 font-semibold tracking-tight text-[var(--foreground)]"
+            className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"
             style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
           >
             Engineering philosophy.
@@ -90,11 +90,12 @@ export function PhilosophySection() {
             <motion.div
               key={p.number}
               variants={cardVariants}
-              whileHover={{ scale: 1.02, y: -3 }}
+              whileHover={{ scale: 1.03, y: -8 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 cursor-default"
+              style={{ boxShadow: "0 2px 12px rgba(245,158,11,0.06)" }}
             >
-              <p className="mb-3 font-mono text-xs text-[#6366f1]">{p.number}</p>
+              <p className="mb-3 font-mono text-xs text-[var(--color-accent)]">{p.number}</p>
               <h3 className="mb-3 text-lg font-semibold text-[var(--foreground)]">
                 {p.name}
               </h3>

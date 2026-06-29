@@ -39,7 +39,7 @@ export function BuildingSection() {
             What I&apos;m Building
           </p>
           <h2
-            className="mb-6 font-semibold tracking-tight text-[var(--foreground)]"
+            className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"
             style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
           >
             Reimagining education infrastructure.
@@ -55,8 +55,8 @@ export function BuildingSection() {
           {cards.map((card, i) => (
             <AnimatedSection key={card.title} delay={i * 0.1}>
               <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 h-full">
-                <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(99,102,241,0.1)]">
-                  <card.icon size={22} color="#6366f1" />
+                <div className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[rgba(245,158,11,0.12)]">
+                  <card.icon size={22} color="var(--color-accent)" />
                 </div>
                 <h3 className="mb-3 text-base font-semibold text-[var(--foreground)]">
                   {card.title}

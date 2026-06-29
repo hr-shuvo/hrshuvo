@@ -22,9 +22,9 @@ const diagrams = [
         {/* ── Clients row ── */}
 
         {/* Mobile App — primary, accent border */}
-        <rect x="80" y="14" width="160" height="52" rx="10" fill="var(--surface-alt)" stroke="#6366f1" strokeWidth="2" />
+        <rect x="80" y="14" width="160" height="52" rx="10" fill="var(--surface-alt)" stroke="var(--color-accent)" strokeWidth="2" />
         <text x="160" y="36" textAnchor="middle" fontSize="12" fontWeight="600" fill="var(--foreground)" fontFamily="system-ui, sans-serif">Mobile App</text>
-        <text x="160" y="52" textAnchor="middle" fontSize="10" fill="#6366f1" fontFamily="system-ui, sans-serif">Flutter · Primary</text>
+        <text x="160" y="52" textAnchor="middle" fontSize="10" fill="var(--color-accent)" fontFamily="system-ui, sans-serif">Flutter · Primary</text>
 
         {/* Web App — secondary */}
         <rect x="380" y="14" width="160" height="52" rx="10" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />
@@ -32,11 +32,11 @@ const diagrams = [
         <text x="460" y="52" textAnchor="middle" fontSize="10" fill="var(--muted-color)" fontFamily="system-ui, sans-serif">Next.js · Companion</text>
 
         {/* Arrows from clients down to API */}
-        <line x1="160" y1="66" x2="210" y2="126" stroke="#6366f1" strokeWidth="1.5" markerEnd="url(#arr1)" />
+        <line x1="160" y1="66" x2="210" y2="126" stroke="var(--color-accent)" strokeWidth="1.5" markerEnd="url(#arr1)" />
         <line x1="460" y1="66" x2="410" y2="126" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr1)" />
 
         {/* ── API layer ── */}
-        <rect x="160" y="128" width="300" height="52" rx="10" fill="var(--surface-alt)" stroke="#6366f1" strokeWidth="2" />
+        <rect x="160" y="128" width="300" height="52" rx="10" fill="var(--surface-alt)" stroke="var(--color-accent)" strokeWidth="2" />
         <text x="310" y="150" textAnchor="middle" fontSize="12" fontWeight="600" fill="var(--foreground)" fontFamily="system-ui, sans-serif">.NET Core Web API</text>
         <text x="310" y="166" textAnchor="middle" fontSize="10" fill="var(--muted-color)" fontFamily="system-ui, sans-serif">REST · Auth · Business Logic · LLM Pipeline</text>
 
@@ -95,7 +95,7 @@ const diagrams = [
         {/* Arrow right */}
         <line x1="140" y1="162" x2="196" y2="162" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr2)" />
         {/* Auth Service */}
-        <rect x="198" y="140" width="164" height="44" rx="8" fill="var(--surface-alt)" stroke="#6366f1" strokeWidth="1.5" />
+        <rect x="198" y="140" width="164" height="44" rx="8" fill="var(--surface-alt)" stroke="var(--color-accent)" strokeWidth="1.5" />
         <text x="280" y="160" textAnchor="middle" fontSize="12" fill="var(--foreground)" fontFamily="system-ui, sans-serif">Auth Service</text>
         <text x="280" y="176" textAnchor="middle" fontSize="10" fill="var(--muted-color)" fontFamily="system-ui, sans-serif">Validate · Sign JWT</text>
         {/* Arrow to DB */}
@@ -144,7 +144,7 @@ const diagrams = [
         <line x1="140" y1="82" x2="196" y2="148" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr3)" />
         <line x1="140" y1="242" x2="196" y2="186" stroke="var(--border)" strokeWidth="1" markerEnd="url(#arr3)" />
         {/* SignalR Hub */}
-        <rect x="198" y="140" width="164" height="44" rx="8" fill="var(--surface-alt)" stroke="#6366f1" strokeWidth="1.5" />
+        <rect x="198" y="140" width="164" height="44" rx="8" fill="var(--surface-alt)" stroke="var(--color-accent)" strokeWidth="1.5" />
         <text x="280" y="160" textAnchor="middle" fontSize="12" fill="var(--foreground)" fontFamily="system-ui, sans-serif">SignalR Hub</text>
         <text x="280" y="176" textAnchor="middle" fontSize="10" fill="var(--muted-color)" fontFamily="system-ui, sans-serif">WebSocket · Events</text>
         {/* Arrows to services */}

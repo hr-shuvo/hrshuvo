@@ -16,7 +16,7 @@ export function ProjectsSection() {
             Work
           </p>
           <h2
-            className="mb-6 font-semibold tracking-tight text-[var(--foreground)]"
+            className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"
             style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
           >
             Selected projects.
@@ -35,16 +35,16 @@ export function ProjectsSection() {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="flex flex-col h-full rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8"
                 style={{
-                  boxShadow: "0 0 0 0 rgba(99,102,241,0)",
+                  boxShadow: "0 2px 12px rgba(245,158,11,0.06)",
                   transition: "box-shadow 0.3s ease",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 20px 60px rgba(99,102,241,0.1)";
+                    "0 20px 60px rgba(245,158,11,0.12)";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 0 0 0 rgba(99,102,241,0)";
+                    "0 2px 12px rgba(245,158,11,0.06)";
                 }}
               >
                 {/* Title row */}
