@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const links = [
   { label: "ABOUT",      alt: "BIO",    href: "/about"      },
@@ -14,13 +14,22 @@ const links = [
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 0);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
       <header
-        className="fixed top-0 inset-x-0 z-50 bg-[var(--background)]/95 backdrop-blur-md"
+        className={`fixed top-0 inset-x-0 z-50 bg-[var(--background)]/95 backdrop-blur-md transition-[border-color] duration-300 ${
+          scrolled ? "border-b border-[var(--border)]" : "border-b border-transparent"
+        }`}
         aria-label="Site navigation"
-        style={{ borderBottom: "1px solid var(--border)" }}
       >
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
           <Link
