@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { ThemeToggle } from "@/components/primitives/ThemeToggle";
 
 const links = [
   { label: "About",      href: "/about"      },
@@ -19,37 +18,41 @@ export function Navbar() {
   return (
     <>
       <header
-        className="fixed top-0 inset-x-0 z-50 bg-[var(--background)]/90 backdrop-blur-md"
+        className="fixed top-0 inset-x-0 z-50 bg-[var(--background)]/95 backdrop-blur-md"
         aria-label="Site navigation"
-        style={{ borderBottom: "1px solid color-mix(in srgb, var(--border) 50%, transparent)" }}
+        style={{ borderBottom: "1px solid var(--border)" }}
       >
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12">
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="font-serif text-base font-medium tracking-tight text-[var(--foreground)] hover:text-[var(--muted-color)] transition-colors duration-200"
+            className="font-serif text-base font-medium tracking-tight text-[var(--foreground)] hover:text-[var(--color-accent)] transition-colors duration-200"
             aria-label="Shuvo — home"
           >
             Shuvo
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-7" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
             {links.map((link) => {
               const active = pathname === link.href || pathname.startsWith(link.href + "/");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="relative text-xs tracking-[0.08em] transition-colors duration-200 py-1"
+                  className="relative text-xs tracking-[0.1em] transition-colors duration-200 py-1 group"
                   style={{ color: active ? "var(--foreground)" : "var(--muted-color)" }}
                 >
                   {link.label}
-                  {active && (
-                    <span
-                      className="absolute bottom-0 left-0 right-0 h-px"
-                      style={{ background: "var(--color-accent)" }}
-                    />
+                  <span
+                    className="absolute bottom-0 left-0 h-px transition-all duration-300"
+                    style={{
+                      background: "var(--color-accent)",
+                      width: active ? "100%" : "0%",
+                    }}
+                  />
+                  {!active && (
+                    <span className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-300" style={{ background: "var(--border)" }} />
                   )}
                 </Link>
               );
@@ -57,7 +60,15 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <ThemeToggle />
+            {/* Desktop: Get in touch CTA */}
+            <a
+              href="mailto:hrshuvo207@gmail.com"
+              className="hidden md:inline-flex items-center text-xs tracking-[0.1em] text-[var(--muted-color)] hover:text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--foreground)] px-3.5 py-1.5 transition-all duration-200"
+            >
+              Get in touch
+            </a>
+
+            {/* Mobile hamburger */}
             <button
               className="md:hidden flex flex-col gap-1.5 p-1 text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
               aria-label={open ? "Close menu" : "Open menu"}
@@ -91,6 +102,13 @@ export function Navbar() {
                 </Link>
               );
             })}
+            <a
+              href="mailto:hrshuvo207@gmail.com"
+              onClick={() => setOpen(false)}
+              className="mt-8 text-sm tracking-[0.06em] text-[var(--color-accent)]"
+            >
+              hrshuvo207@gmail.com
+            </a>
           </nav>
         </div>
       )}

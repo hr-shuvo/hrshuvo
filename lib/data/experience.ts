@@ -49,13 +49,14 @@ export const experiences: ExperienceItem[] = [
   {
     id: "onnorokom",
     company: "OnnoRokom Software",
+    logoSrc: "/onnorokom-logo.jpg",
     logoAccent: "#2563eb",
     role: "Software Engineer",
     type: "Full-time",
     period: "2022 – 2023",
     duration: "~1 year",
     location: "Dhaka, Bangladesh",
-    url: "https://onnorokomgroup.com",
+    url: "https://onnorokomsoftware.com",
     tagline: "One of Bangladesh's largest software conglomerates — ERP, education, healthcare.",
     story:
       "My first production system. I built a school management platform used by real teachers with real students. The moment I realised the data in that database belonged to actual children at an actual school, everything changed. A bug wasn't a failing test anymore — it was a teacher who couldn't mark attendance. That shift in perspective has informed every system I've designed since.",

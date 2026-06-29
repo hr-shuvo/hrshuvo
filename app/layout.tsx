@@ -84,10 +84,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#faf8f4" },
-    { media: "(prefers-color-scheme: dark)", color: "#0f0e0c" },
-  ],
+  themeColor: "#0e0c0a",
   width: "device-width",
   initialScale: 1,
 };
@@ -98,17 +95,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} ${lora.variable}`}
     >
-      <head>
-        {/* Flash-free dark mode */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('portfolio-theme');if(t==='dark'){document.documentElement.classList.add('dark')}else if(t==='light'){document.documentElement.classList.remove('dark')}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('dark')}}catch(e){}})()`,
-          }}
-        />
-      </head>
       <body className="min-h-screen flex flex-col antialiased bg-[var(--background)] text-[var(--foreground)]">
         <Navbar />
         <main className="flex-1">

@@ -6,7 +6,7 @@ import { ProjectMockup } from "@/components/ui/ProjectMockup";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Products I built — Ezdu, Better IELTS, and the earlier work that shaped my instincts.",
+  description: "Products I built — Ezdu and Better IELTS.",
 };
 
 const projectMeta: Record<string, { accent: string; secondaryAccent?: string; role: string; logoSrc?: string }> = {
@@ -17,7 +17,7 @@ const projectMeta: Record<string, { accent: string; secondaryAccent?: string; ro
     logoSrc: "/ezdu-logo.png",
   },
   "better-ielts": {
-    accent: "#00d492",
+    accent: "#00b87a",
     secondaryAccent: "#008d61",
     role: "Sole Engineer & Founder",
     logoSrc: "/better-ielts-logo.svg",
@@ -34,7 +34,6 @@ const projectMeta: Record<string, { accent: string; secondaryAccent?: string; ro
 
 export default function ProjectsPage() {
   const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
 
   return (
     <div className="pt-14">
@@ -42,13 +41,14 @@ export default function ProjectsPage() {
       {/* Header */}
       <div className="mx-auto max-w-7xl px-6 pt-32 sm:px-8 md:pt-40 lg:px-12 lg:pt-48">
         <div className="border-t border-[var(--border)] pt-14">
+          <p className="mb-5 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">Work</p>
           <h1
             className="font-serif tracking-tight text-[var(--foreground)]"
-            style={{ fontSize: "clamp(2.4rem, 5.5vw, 5rem)", fontWeight: 600, lineHeight: 1.04, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.8rem, 6.5vw, 6rem)", fontWeight: 600, lineHeight: 1.02, letterSpacing: "-0.03em" }}
           >
             Projects.
           </h1>
-          <p className="mt-5 max-w-sm text-sm leading-[1.85] text-[var(--muted-color)]">
+          <p className="mt-5 max-w-sm text-sm leading-[1.9] text-[var(--muted-color)]">
             Products built from scratch — from schema to deployment.
           </p>
         </div>
@@ -59,19 +59,26 @@ export default function ProjectsPage() {
         {featured.map((project, i) => {
           const meta = projectMeta[project.id] ?? { accent: "#c2884a", role: "Engineer" };
           return (
-            <article key={project.id} className="mt-20 border-t border-[var(--border)] pt-16 lg:mt-28">
-
+            <article
+              key={project.id}
+              className="mt-20 border-t border-[var(--border)] pt-16 lg:mt-28"
+            >
               {/* Header */}
               <div className="flex items-start justify-between gap-8 mb-12 flex-wrap">
                 <div className="flex items-baseline gap-5">
                   <span
-                    className="font-serif text-[var(--surface-alt)] select-none tabular-nums"
-                    style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 600, letterSpacing: "-0.04em" }}
+                    className="font-serif select-none tabular-nums"
+                    style={{
+                      fontSize: "clamp(2rem, 4vw, 3.5rem)",
+                      fontWeight: 600,
+                      letterSpacing: "-0.04em",
+                      color: "var(--border)",
+                    }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <div className="flex items-center gap-3 mb-1">
+                    <div className="flex items-center gap-3 mb-1.5">
                       {meta.logoSrc ? (
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
@@ -94,10 +101,10 @@ export default function ProjectsPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 flex-shrink-0">
+                <div className="flex items-center gap-5 flex-shrink-0">
                   <Link
                     href={`/projects/${project.id}`}
-                    className="text-xs tracking-[0.06em] text-[var(--foreground)] hover:text-[var(--muted-color)] transition-colors pb-1 border-b border-[var(--foreground)] hover:border-[var(--muted-color)]"
+                    className="group flex items-center gap-2 text-xs tracking-[0.08em] text-[var(--foreground)] hover:text-[var(--color-accent)] transition-colors duration-200 pb-px border-b border-[var(--border)] hover:border-[var(--color-accent)]"
                   >
                     Case study →
                   </Link>
@@ -106,7 +113,7 @@ export default function ProjectsPage() {
                       href={project.links[0].url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs tracking-[0.06em] text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors pb-1 border-b border-[var(--border)] hover:border-[var(--muted-color)]"
+                      className="inline-flex items-center gap-1.5 text-xs tracking-[0.08em] text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors duration-200 pb-px border-b border-[var(--border)] hover:border-[var(--muted-color)]"
                     >
                       Live site <ExternalLink size={10} />
                     </a>
@@ -115,16 +122,18 @@ export default function ProjectsPage() {
               </div>
 
               {/* Visual + details */}
-              <div className="grid gap-10 lg:grid-cols-[55%_1fr] lg:gap-14">
-                <ProjectMockup
-                  name={project.title}
-                  accent={meta.accent}
-                  secondaryAccent={meta.secondaryAccent}
-                  variant="browser"
-                  imageSrc={project.id === "ezdu" ? "/screenshots/ezdu.png" : undefined}
-                />
+              <div className={`grid gap-10 lg:gap-14 ${project.id !== "better-ielts" ? "lg:grid-cols-[55%_1fr]" : ""}`}>
+                {project.id !== "better-ielts" && (
+                  <ProjectMockup
+                    name={project.title}
+                    accent={meta.accent}
+                    secondaryAccent={meta.secondaryAccent}
+                    variant="browser"
+                    imageSrc={project.id === "ezdu" ? "/screenshots/ezdu.png" : undefined}
+                  />
+                )}
 
-                <div className="flex flex-col gap-6 justify-center">
+                <div className="flex flex-col gap-7 justify-center">
                   <div>
                     <p className="text-xs tracking-[0.15em] text-[var(--muted-color)] uppercase mb-1">Role</p>
                     <p className="text-sm text-[var(--foreground)] font-medium">{meta.role}</p>
@@ -132,15 +141,15 @@ export default function ProjectsPage() {
 
                   <div>
                     <p className="text-xs tracking-[0.15em] text-[var(--muted-color)] uppercase mb-2">Problem</p>
-                    <p className="text-sm leading-[1.85] text-[var(--muted-color)]">{project.problem}</p>
+                    <p className="text-sm leading-[1.9] text-[var(--muted-color)]">{project.problem}</p>
                   </div>
 
                   <div className="border-l-2 pl-4" style={{ borderColor: meta.accent }}>
                     <p className="text-xs tracking-[0.15em] text-[var(--muted-color)] uppercase mb-2">Stack</p>
-                    <p className="text-xs leading-[1.7] text-[var(--muted-color)]">{project.architecture}</p>
+                    <p className="text-xs leading-[1.75] text-[var(--muted-color)]">{project.architecture}</p>
                   </div>
 
-                  <p className="text-sm leading-[1.85] text-[var(--foreground)]">{project.outcome}</p>
+                  <p className="text-sm leading-[1.9] text-[var(--foreground)]">{project.outcome}</p>
                 </div>
               </div>
             </article>
@@ -148,53 +157,7 @@ export default function ProjectsPage() {
         })}
       </div>
 
-      {/* Earlier work */}
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mt-24 border-t border-[var(--border)] pt-16 lg:mt-32">
-          <p className="mb-10 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Earlier work</p>
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            {rest.map((project) => {
-              const meta = projectMeta[project.id] ?? { accent: "#c2884a", role: "Engineer" };
-              return (
-                <div key={project.id} className="border border-[var(--border)] overflow-hidden">
-                  <ProjectMockup
-                    name={project.title}
-                    accent={meta.accent}
-                    variant="desktop"
-                  />
-                  <div className="p-5">
-                    <div className="flex items-center gap-2.5 mb-2">
-                      {meta.logoSrc ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={meta.logoSrc}
-                          alt={`${project.title} logo`}
-                          className="w-5 h-5 rounded flex-shrink-0"
-                          style={{ objectFit: "cover" }}
-                        />
-                      ) : (
-                        <div className="w-2 h-2 rounded-sm" style={{ background: meta.accent }} />
-                      )}
-                      <h3
-                        className="font-serif text-[var(--foreground)]"
-                        style={{ fontSize: "0.95rem", fontWeight: 500, letterSpacing: "-0.01em" }}
-                      >
-                        {project.title}
-                      </h3>
-                    </div>
-                    <p className="text-xs text-[var(--muted-color)] mb-3">{project.tagline}</p>
-                    <p className="text-xs leading-[1.75] text-[var(--muted-color)]">{project.outcome}</p>
-                    <p className="mt-3 text-xs" style={{ color: meta.accent, opacity: 0.8 }}>{meta.role}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="h-28 lg:h-36" />
-        </div>
-      </div>
+      <div className="h-28 lg:h-36" />
 
     </div>
   );

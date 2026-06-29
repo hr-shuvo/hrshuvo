@@ -2,9 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-/* ─── Dark mode: class-based for shadcn compat ────────────── */
-@custom-variant dark (&:is(.dark *));
-
 /* ─── Tailwind v4 theme tokens ────────────────────────────── */
 @theme inline {
   /* Fonts */
@@ -17,7 +14,7 @@
   --color-accent-light:   #d4a06a;
   --color-accent-dark:    #a8702e;
 
-  /* Semantic tokens (resolved from :root / .dark) */
+  /* Semantic tokens */
   --color-background:    var(--background);
   --color-foreground:    var(--foreground);
   --color-surface:       var(--surface);
@@ -45,59 +42,36 @@
   --radius-xl:  calc(var(--radius) * 1.4);
 }
 
-/* ─── Light Mode ──────────────────────────────────────────── */
+/* ─── Soft Dark / Warm Dark — Single Theme ────────────────── */
+/*
+ * Deep charcoal, never pure black. Warm undertones throughout.
+ * Off-white text that reads comfortably. Amber accent for warmth.
+ */
 :root {
-  --background:  #faf8f4;
-  --surface:     #f5f2ec;
-  --surface-alt: #ede9e0;
-  --foreground:  #161411;
-  --muted-color: #7c7166;
-  --border:      #ddd6c8;
+  --background:  #0e0c0a;   /* near-black warm dark */
+  --surface:     #161310;   /* lifted card surface */
+  --surface-alt: #1f1b16;   /* interactive / hover surface */
+  --foreground:  #ede9e0;   /* soft warm off-white */
+  --muted-color: #8a7e72;   /* warm muted text */
+  --border:      #2a2318;   /* subtle warm border */
 
   /* shadcn tokens */
-  --card:                  #f5f2ec;
-  --card-foreground:       #161411;
-  --popover:               #f5f2ec;
-  --popover-foreground:    #161411;
-  --primary:               #161411;
-  --primary-foreground:    #faf8f4;
-  --secondary:             #ede9e0;
-  --secondary-foreground:  #161411;
-  --muted:                 #ede9e0;
-  --muted-foreground:      #7c7166;
-  --accent:                #ede9e0;
-  --accent-foreground:     #161411;
-  --destructive:           oklch(0.577 0.245 27.325);
-  --input:                 #ddd6c8;
+  --card:                  #161310;
+  --card-foreground:       #ede9e0;
+  --popover:               #161310;
+  --popover-foreground:    #ede9e0;
+  --primary:               #ede9e0;
+  --primary-foreground:    #0e0c0a;
+  --secondary:             #1f1b16;
+  --secondary-foreground:  #ede9e0;
+  --muted:                 #1f1b16;
+  --muted-foreground:      #8a7e72;
+  --accent:                #1f1b16;
+  --accent-foreground:     #ede9e0;
+  --destructive:           oklch(0.704 0.191 22.216);
+  --input:                 #3c3228;
   --ring:                  #c2884a;
   --radius:                0.5rem;
-}
-
-/* ─── Dark Mode ───────────────────────────────────────────── */
-.dark {
-  --background:  #0f0e0c;
-  --surface:     #171510;
-  --surface-alt: #201e19;
-  --foreground:  #f0ece4;
-  --muted-color: #9c9080;
-  --border:      #302b22;
-
-  /* shadcn tokens */
-  --card:                  #171510;
-  --card-foreground:       #f0ece4;
-  --popover:               #171510;
-  --popover-foreground:    #f0ece4;
-  --primary:               #f0ece4;
-  --primary-foreground:    #0f0e0c;
-  --secondary:             #201e19;
-  --secondary-foreground:  #f0ece4;
-  --muted:                 #201e19;
-  --muted-foreground:      #9c9080;
-  --accent:                #201e19;
-  --accent-foreground:     #f0ece4;
-  --destructive:           oklch(0.704 0.191 22.216);
-  --input:                 #302b22;
-  --ring:                  #c2884a;
 }
 
 /* ─── Base Resets ─────────────────────────────────────────── */
@@ -108,7 +82,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* still useful for in-page anchor links on Architecture page */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -118,7 +92,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ─── Editorial serif class ──────────────────────────────── */
@@ -128,7 +101,7 @@ body {
 
 /* ─── Selection ───────────────────────────────────────────── */
 ::selection {
-  background-color: rgba(194, 136, 74, 0.18);
+  background-color: rgba(194, 136, 74, 0.22);
   color: var(--foreground);
 }
 
@@ -149,6 +122,15 @@ body {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* ─── Card hover lift ─────────────────────────────────────── */
+.card-hover {
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 4px 28px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
 }
 
 /* ─── No-JS fallback for Framer Motion hidden elements ───── */

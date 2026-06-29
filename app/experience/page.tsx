@@ -25,14 +25,14 @@ export default function ExperiencePage() {
       {/* Header */}
       <div className="mx-auto max-w-7xl px-6 pt-32 sm:px-8 md:pt-40 lg:px-12 lg:pt-48">
         <div className="border-t border-[var(--border)] pt-14">
-          <p className="mb-6 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">Career</p>
+          <p className="mb-5 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">Career</p>
           <h1
             className="font-serif tracking-tight text-[var(--foreground)]"
-            style={{ fontSize: "clamp(2.4rem, 5.5vw, 5rem)", fontWeight: 600, lineHeight: 1.04, letterSpacing: "-0.025em" }}
+            style={{ fontSize: "clamp(2.8rem, 6.5vw, 6rem)", fontWeight: 600, lineHeight: 1.02, letterSpacing: "-0.03em" }}
           >
             Experience.
           </h1>
-          <p className="mt-5 max-w-md text-sm leading-[1.85] text-[var(--muted-color)]">
+          <p className="mt-5 max-w-md text-sm leading-[1.9] text-[var(--muted-color)]">
             Two years, two companies. Every role shaped how I think about systems and ownership.
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function ExperiencePage() {
                   <img
                     src={exp.logoSrc}
                     alt={`${exp.company} logo`}
-                    className="w-13 h-13 rounded-xl object-cover flex-shrink-0"
+                    className="rounded-xl object-cover flex-shrink-0"
                     style={{ width: 52, height: 52 }}
                   />
                 ) : (
@@ -91,7 +91,7 @@ export default function ExperiencePage() {
                     </div>
                   </div>
 
-                  <div className="mt-3 flex items-center gap-3">
+                  <div className="mt-3 flex items-center gap-3 flex-wrap">
                     <span className="text-xs tracking-[0.08em] px-2.5 py-1 border border-[var(--border)] text-[var(--muted-color)]">
                       {exp.type}
                     </span>
@@ -100,7 +100,7 @@ export default function ExperiencePage() {
                         <span
                           key={p}
                           className="text-xs px-2.5 py-1"
-                          style={{ background: `${exp.logoAccent}14`, color: exp.logoAccent }}
+                          style={{ background: `${exp.logoAccent}18`, color: exp.logoAccent }}
                         >
                           {p}
                         </span>
@@ -121,11 +121,14 @@ export default function ExperiencePage() {
 
                   <div>
                     <p className="text-xs tracking-[0.2em] text-[var(--muted-color)] uppercase mb-5">Responsibilities</p>
-                    <ul className="space-y-3">
+                    <ul className="space-y-3.5">
                       {exp.responsibilities.map((r, ri) => (
                         <li key={ri} className="flex gap-4 items-start">
-                          <span className="mt-2 flex-shrink-0 w-1 h-1 rounded-full" style={{ background: exp.logoAccent }} />
-                          <p className="text-sm leading-[1.8] text-[var(--muted-color)]">{r}</p>
+                          <span
+                            className="mt-2 flex-shrink-0 w-1 h-1 rounded-full"
+                            style={{ background: exp.logoAccent }}
+                          />
+                          <p className="text-sm leading-[1.85] text-[var(--muted-color)]">{r}</p>
                         </li>
                       ))}
                     </ul>
@@ -145,7 +148,7 @@ export default function ExperiencePage() {
                           >
                             {String(ai + 1).padStart(2, "0")}
                           </span>
-                          <p className="text-sm leading-[1.8] text-[var(--foreground)]">{a}</p>
+                          <p className="text-sm leading-[1.85] text-[var(--foreground)]">{a}</p>
                         </div>
                       ))}
                     </div>
@@ -157,7 +160,7 @@ export default function ExperiencePage() {
                       {exp.tech.map((t) => (
                         <span
                           key={t}
-                          className="text-xs border border-[var(--border)] px-2.5 py-1 text-[var(--muted-color)]"
+                          className="text-xs border border-[var(--border)] px-2.5 py-1 text-[var(--muted-color)] hover:border-[var(--muted-color)] transition-colors duration-150"
                         >
                           {t}
                         </span>
@@ -190,7 +193,7 @@ export default function ExperiencePage() {
               <div className="w-2 h-2 rounded-full" style={{ background: "var(--color-accent)" }} />
             </div>
             <div>
-              <div className="flex items-center gap-3 mb-1">
+              <div className="flex items-center gap-3 mb-1.5 flex-wrap">
                 <h2
                   className="font-serif text-[var(--foreground)]"
                   style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)", fontWeight: 600, letterSpacing: "-0.015em" }}
@@ -205,7 +208,7 @@ export default function ExperiencePage() {
                 </span>
               </div>
               <p className="text-sm text-[var(--muted-color)] mb-3">2024 – Present · Founder &amp; Sole Engineer</p>
-              <p className="text-sm leading-[1.85] text-[var(--muted-color)] max-w-xl">
+              <p className="text-sm leading-[1.9] text-[var(--muted-color)] max-w-xl">
                 Left employment to build independently. Two products in production —
                 full ownership of product, engineering, and operations.
               </p>
