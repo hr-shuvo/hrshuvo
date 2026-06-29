@@ -1,26 +1,155 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ─── Dark mode: class-based for shadcn compat ────────────── */
+@custom-variant dark (&:is(.dark *));
 
+/* ─── Tailwind v4 theme tokens ────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Portfolio accent — Indigo */
+  --color-accent:         #6366f1;
+  --color-accent-light:   #818cf8;
+  --color-accent-dark:    #4f46e5;
+
+  /* Semantic tokens (resolved from :root / .dark) */
+  --color-background:    var(--background);
+  --color-foreground:    var(--foreground);
+  --color-surface:       var(--surface);
+  --color-surface-alt:   var(--surface-alt);
+  --color-muted-color:   var(--muted-color);
+  --color-border:        var(--border);
+
+  /* shadcn compatibility */
+  --color-card:                   var(--card);
+  --color-card-foreground:        var(--card-foreground);
+  --color-popover:                var(--popover);
+  --color-popover-foreground:     var(--popover-foreground);
+  --color-primary:                var(--primary);
+  --color-primary-foreground:     var(--primary-foreground);
+  --color-secondary:              var(--secondary);
+  --color-secondary-foreground:   var(--secondary-foreground);
+  --color-muted:                  var(--muted);
+  --color-muted-foreground:       var(--muted-foreground);
+  --color-destructive:            var(--destructive);
+  --color-input:                  var(--input);
+  --color-ring:                   var(--ring);
+  --radius-sm:  calc(var(--radius) * 0.6);
+  --radius-md:  calc(var(--radius) * 0.8);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) * 1.4);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Light Mode ──────────────────────────────────────────── */
+:root {
+  --background:  #fafafa;
+  --surface:     #ffffff;
+  --surface-alt: #f4f4f5;
+  --foreground:  #09090b;
+  --muted-color: #71717a;
+  --border:      oklch(0.922 0 0);
+
+  /* shadcn tokens */
+  --card:                  #ffffff;
+  --card-foreground:       #09090b;
+  --popover:               #ffffff;
+  --popover-foreground:    #09090b;
+  --primary:               #09090b;
+  --primary-foreground:    #fafafa;
+  --secondary:             #f4f4f5;
+  --secondary-foreground:  #09090b;
+  --muted:                 #f4f4f5;
+  --muted-foreground:      #71717a;
+  --accent:                #f4f4f5;
+  --accent-foreground:     #09090b;
+  --destructive:           oklch(0.577 0.245 27.325);
+  --input:                 oklch(0.922 0 0);
+  --ring:                  oklch(0.708 0 0);
+  --radius:                0.625rem;
+}
+
+/* ─── Dark Mode ───────────────────────────────────────────── */
+.dark {
+  --background:  #09090b;
+  --surface:     #111113;
+  --surface-alt: #18181b;
+  --foreground:  #fafafa;
+  --muted-color: #a1a1aa;
+  --border:      oklch(1 0 0 / 10%);
+
+  /* shadcn tokens */
+  --card:                  #18181b;
+  --card-foreground:       #fafafa;
+  --popover:               #18181b;
+  --popover-foreground:    #fafafa;
+  --primary:               #fafafa;
+  --primary-foreground:    #09090b;
+  --secondary:             #27272a;
+  --secondary-foreground:  #fafafa;
+  --muted:                 #27272a;
+  --muted-foreground:      #a1a1aa;
+  --accent:                #27272a;
+  --accent-foreground:     #fafafa;
+  --destructive:           oklch(0.704 0.191 22.216);
+  --input:                 oklch(1 0 0 / 15%);
+  --ring:                  oklch(0.556 0 0);
+}
+
+/* ─── Base Resets ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Selection ───────────────────────────────────────────── */
+::selection {
+  background-color: rgba(99, 102, 241, 0.2);
+  color: var(--foreground);
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+/* ─── Focus ───────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── No-JS fallback for Framer Motion hidden elements ───── */
+@media (scripting: none) {
+  [style*="opacity: 0"] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
 }
