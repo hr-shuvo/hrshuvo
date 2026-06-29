@@ -13,138 +13,123 @@ export function ProjectsSection() {
   return (
     <Section id="projects" aria-label="Selected Projects">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        {/* Header — minimal, tight */}
+
+        {/* Section opening */}
         <AnimatedSection>
-          <div className="mb-16 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
-                Shipped
-              </p>
-              <h2
-                className="font-extrabold tracking-tight text-[var(--foreground)]"
-                style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: 0.95 }}
-              >
-                Selected projects.
-              </h2>
-            </div>
-            <p className="max-w-xs text-sm leading-relaxed text-[var(--muted-color)] sm:text-right">
-              Decisions, trade-offs, and outcomes — not screenshots.
+          <div className="mb-6 flex items-center gap-5">
+            <span className="text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Shipped</span>
+            <div className="h-px flex-1 bg-[var(--border)]" />
+          </div>
+          <div className="mb-20 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <h2
+              className="font-serif tracking-tight text-[var(--foreground)]"
+              style={{
+                fontSize: "clamp(2.4rem, 5vw, 4.5rem)",
+                fontWeight: 600,
+                lineHeight: 1.05,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Things I shipped.
+            </h2>
+            <p className="max-w-64 text-sm leading-relaxed text-[var(--muted-color)] sm:text-right sm:pb-1">
+              What broke, what I changed, what ended up in production.
             </p>
           </div>
         </AnimatedSection>
 
-        {/* Featured: asymmetric two-column layout */}
-        <div className="mb-4 grid gap-4 lg:grid-cols-[3fr_2fr]">
+        {/* Featured — open layout, no rounded cards */}
+        <div className="mb-2 space-y-0">
           {featured.map((project, i) => (
-            <AnimatedSection key={project.id} delay={i * 0.1}>
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                className="flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8"
-                style={{ boxShadow: "0 2px 16px rgba(245,158,11,0.05)" }}
-              >
-                {/* Title + link */}
-                <div className="mb-6 flex items-start justify-between gap-4">
+            <AnimatedSection key={project.id} delay={i * 0.06}>
+              <div className="border-t border-[var(--border)] py-14 lg:py-16">
+                {/* Title row */}
+                <div className="mb-10 flex items-baseline justify-between gap-6">
                   <div>
                     <h3
-                      className="mb-1 font-extrabold text-[var(--foreground)]"
-                      style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)" }}
+                      className="font-serif mb-1.5 text-[var(--foreground)]"
+                      style={{
+                        fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
+                        fontWeight: 600,
+                        letterSpacing: "-0.02em",
+                      }}
                     >
                       {project.title}
                     </h3>
-                    <p className="text-sm text-[var(--muted-color)]">{project.tagline}</p>
+                    <p className="text-sm text-[var(--muted-color)] tracking-[0.02em]">{project.tagline}</p>
                   </div>
                   {project.links.length > 0 && (
                     <a
                       href={project.links[0].url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={project.links[0].label}
-                      className="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border)] text-[var(--muted-color)] hover:text-[var(--foreground)] hover:border-[var(--foreground)] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs tracking-[0.06em] text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors border-b border-[var(--border)] pb-0.5 hover:border-[var(--foreground)] whitespace-nowrap"
                     >
-                      <ExternalLink size={13} />
+                      Visit site <ExternalLink size={10} />
                     </a>
                   )}
                 </div>
 
-                {/* Two-col problem/solution */}
-                <div className="mb-6 grid gap-4 flex-1 sm:grid-cols-2">
+                {/* Body — editorial three-column on desktop */}
+                <div className="grid gap-8 lg:grid-cols-3 lg:gap-12">
                   <div>
-                    <p className="mb-1.5 text-[10px] font-medium tracking-widest text-[var(--muted-color)] uppercase">
-                      Problem
-                    </p>
-                    <p className="text-sm leading-relaxed text-[var(--foreground)]">
-                      {project.problem}
-                    </p>
+                    <p className="mb-3 text-[10px] tracking-[0.2em] text-[var(--muted-color)] uppercase">Problem</p>
+                    <p className="text-sm leading-[1.8] text-[var(--foreground)]">{project.problem}</p>
                   </div>
                   <div>
-                    <p className="mb-1.5 text-[10px] font-medium tracking-widest text-[var(--muted-color)] uppercase">
-                      Solution
-                    </p>
-                    <p className="text-sm leading-relaxed text-[var(--foreground)]">
-                      {project.solution}
-                    </p>
+                    <p className="mb-3 text-[10px] tracking-[0.2em] text-[var(--muted-color)] uppercase">What I built</p>
+                    <p className="text-sm leading-[1.8] text-[var(--foreground)]">{project.solution}</p>
+                  </div>
+                  <div>
+                    <p className="mb-3 text-[10px] tracking-[0.2em] text-[var(--muted-color)] uppercase">Outcome</p>
+                    <p className="text-sm leading-[1.8] text-[var(--foreground)]">{project.outcome}</p>
                   </div>
                 </div>
 
-                {/* Outcome — highlighted */}
-                <div className="mb-6 rounded-xl bg-[var(--surface-alt)] px-4 py-3">
-                  <p className="mb-1 text-[10px] font-medium tracking-widest text-[var(--muted-color)] uppercase">
-                    Outcome
-                  </p>
-                  <p className="text-sm font-medium leading-relaxed text-[var(--foreground)]">
-                    {project.outcome}
-                  </p>
-                </div>
-
-                {/* Tech */}
-                <div className="flex flex-wrap gap-1.5">
+                {/* Tech — inline, unadorned */}
+                <div className="mt-8 flex flex-wrap gap-x-4 gap-y-1">
                   {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-md border border-[var(--border)] px-2.5 py-0.5 text-xs text-[var(--muted-color)]"
-                    >
+                    <span key={tech} className="text-xs tracking-[0.05em] text-[var(--muted-color)]">
                       {tech}
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </AnimatedSection>
           ))}
         </div>
 
-        {/* Non-featured: compact horizontal list */}
-        <div className="border-t border-[var(--border)]">
+        {/* Secondary — compact, list-form */}
+        <div className="mt-2">
           {rest.map((project, i) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, x: -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
-              className="group grid border-b border-[var(--border)] py-7 gap-4 lg:grid-cols-[16rem_1fr_auto] lg:gap-12 lg:items-center"
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: i * 0.06 }}
+              className="group grid border-t border-[var(--border)] py-8 gap-4 lg:grid-cols-[14rem_1fr_12rem] lg:gap-12 lg:items-start"
             >
               <div>
-                <h3 className="font-semibold text-[var(--foreground)] group-hover:text-[var(--color-accent)] transition-colors">
+                <h3
+                  className="font-serif mb-1 text-[var(--foreground)] group-hover:text-[var(--color-accent)] transition-colors"
+                  style={{ fontSize: "1rem", fontWeight: 500, letterSpacing: "-0.01em" }}
+                >
                   {project.title}
                 </h3>
-                <p className="text-xs text-[var(--muted-color)] mt-0.5">{project.tagline}</p>
+                <p className="text-xs text-[var(--muted-color)]">{project.tagline}</p>
               </div>
-              <p className="text-sm leading-relaxed text-[var(--muted-color)]">
-                {project.outcome}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
+              <p className="text-sm leading-[1.8] text-[var(--muted-color)]">{project.outcome}</p>
+              <div className="flex flex-wrap gap-x-3 gap-y-1 lg:justify-end">
                 {project.tech.slice(0, 3).map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-md border border-[var(--border)] px-2.5 py-0.5 text-xs text-[var(--muted-color)]"
-                  >
+                  <span key={tech} className="text-xs tracking-[0.04em] text-[var(--muted-color)]">
                     {tech}
                   </span>
                 ))}
               </div>
             </motion.div>
           ))}
+          <div className="border-t border-[var(--border)]" />
         </div>
       </div>
     </Section>

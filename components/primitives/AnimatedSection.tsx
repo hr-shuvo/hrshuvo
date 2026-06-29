@@ -15,16 +15,14 @@ function buildVariants(direction: string): Variants {
   return {
     hidden: {
       opacity: 0,
-      y: direction === "up" ? 40 : 0,
-      x: direction === "left" ? -40 : direction === "right" ? 40 : 0,
-      filter: "blur(4px)",
+      y: direction === "up" ? 20 : 0,
+      x: direction === "left" ? -20 : direction === "right" ? 20 : 0,
     },
     visible: {
       opacity: 1,
       y: 0,
       x: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
     },
   };
 }

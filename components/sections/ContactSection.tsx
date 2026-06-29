@@ -22,74 +22,79 @@ function LinkedInIcon({ size = 18 }: { size?: number }) {
 export function ContactSection() {
   return (
     <section id="contact" aria-label="Contact" className="relative overflow-hidden">
-      {/* Warm glow behind the text */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(245,158,11,0.08) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12 lg:py-40">
+      <div className="relative mx-auto max-w-7xl px-6 py-28 sm:px-8 md:py-36 lg:px-12 lg:py-44">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="mb-6 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
-            What&apos;s next
-          </p>
+          {/* Section rule */}
+          <div className="mb-12 flex items-center gap-5">
+            <span className="text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Let&apos;s talk</span>
+            <div className="h-px flex-1 bg-[var(--border)]" />
+          </div>
 
-          {/* Massive headline — no container constraint */}
+          {/* Headline */}
           <h2
-            className="mb-12 font-extrabold leading-[0.9] tracking-tight text-[var(--foreground)]"
-            style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
+            className="font-serif mb-14 tracking-tight text-[var(--foreground)]"
+            style={{
+              fontSize: "clamp(2.8rem, 7vw, 6.5rem)",
+              fontWeight: 600,
+              lineHeight: 1.06,
+              letterSpacing: "-0.025em",
+            }}
           >
-            If you&apos;re working
+            Building something
             <br />
-            on something real,
+            worth building?
             <br />
-            <span className="text-[var(--muted-color)]">I want to hear.</span>
+            <em
+              className="font-serif"
+              style={{ fontStyle: "italic", fontWeight: 400, color: "var(--muted-color)" }}
+            >
+              Tell me about it.
+            </em>
           </h2>
 
-          {/* Bottom row: body + contact */}
+          {/* Body + contact — editorial colophon layout */}
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-            <p className="max-w-md text-lg leading-relaxed text-[var(--muted-color)]">
-              Open to founding teams, hard engineering problems, and products that
-              don&apos;t exist yet. Based in Dhaka, working remotely.
+            <p className="max-w-md text-sm leading-[1.85] text-[var(--muted-color)]">
+              If you&apos;re building something early-stage, working through a
+              hard technical problem, or need someone who can move between
+              product and engineering without losing context — that&apos;s
+              where I do my best work. Based in Dhaka. Work remotely.
             </p>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-6">
               <a
                 href="mailto:hrshuvo207@gmail.com"
-                className="inline-flex items-center gap-2.5 rounded-full bg-[var(--foreground)] px-7 py-3.5 text-base font-medium text-[var(--background)] hover:opacity-80 transition-opacity self-start"
+                className="inline-flex items-center gap-2.5 self-start text-sm tracking-[0.04em] text-[var(--foreground)] border-b border-[var(--foreground)] pb-0.5 hover:text-[var(--muted-color)] hover:border-[var(--muted-color)] transition-colors"
               >
-                <Mail size={17} />
+                <Mail size={14} />
                 hrshuvo207@gmail.com
               </a>
 
-              <div className="flex items-center gap-6 pl-1">
+              <div className="flex items-center gap-7">
                 <a
                   href="https://github.com/hr-shuvo"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
+                  className="flex items-center gap-2 text-xs tracking-[0.06em] text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
                 >
-                  <GitHubIcon size={16} />
+                  <GitHubIcon size={14} />
                   hr-shuvo
                 </a>
                 <a
                   href="https://linkedin.com/in/hrshuvo9"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
+                  className="flex items-center gap-2 text-xs tracking-[0.06em] text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
                 >
-                  <LinkedInIcon size={16} />
+                  <LinkedInIcon size={14} />
                   hrshuvo9
                 </a>
-                <span className="text-sm text-[var(--muted-color)]">
+                <span className="text-xs tracking-[0.06em] text-[var(--muted-color)]">
                   Dhaka, BD
                 </span>
               </div>

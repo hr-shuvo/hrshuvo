@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Lora } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -16,10 +16,18 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const lora = Lora({
+  variable: "--font-lora",
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://hrshuvo.dev"),
   title: {
-    default: "Shuvo — Software Engineer & Product Builder",
+    default: "Shuvo — Software Engineer",
     template: "%s | Shuvo",
   },
   description:
@@ -28,7 +36,6 @@ export const metadata: Metadata = {
     "Software Engineer",
     "Full-Stack Developer",
     "Product Builder",
-    "System Architect",
     "Next.js",
     "ASP.NET Core",
     "TypeScript",
@@ -37,14 +44,14 @@ export const metadata: Metadata = {
     "Dhaka",
     "Bangladesh",
   ],
-  authors: [{ name: "Md Harun Or Rashid Shuvo" }],
-  creator: "Md Harun Or Rashid Shuvo",
+  authors: [{ name: "Shuvo" }],
+  creator: "Shuvo",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://hrshuvo.dev",
     siteName: "Shuvo",
-    title: "Shuvo — Software Engineer & Product Builder",
+    title: "Shuvo — Engineer & Founder",
     description:
       "Full-Stack Software Engineer building scalable systems and real products. Creator of Ezdu and Better IELTS.",
     images: [
@@ -52,13 +59,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Shuvo — Software Engineer & Product Builder",
+        alt: "Shuvo — Engineer & Founder",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Shuvo — Software Engineer & Product Builder",
+    title: "Shuvo — Engineer & Founder",
     description:
       "Full-Stack Software Engineer building scalable systems and real products. Creator of Ezdu and Better IELTS.",
     images: ["/og-image.png"],
@@ -78,8 +85,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
+    { media: "(prefers-color-scheme: light)", color: "#faf8f4" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0e0c" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -92,10 +99,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={`${geistSans.variable} ${geistMono.variable} ${lora.variable}`}
     >
       <head>
-        {/* Flash-free dark mode: runs before first paint, adds .dark class to <html> */}
+        {/* Flash-free dark mode */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('portfolio-theme');if(t==='dark'){document.documentElement.classList.add('dark')}else if(t==='light'){document.documentElement.classList.remove('dark')}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('dark')}}catch(e){}})()`,

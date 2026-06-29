@@ -8,13 +8,14 @@
 /* ─── Tailwind v4 theme tokens ────────────────────────────── */
 @theme inline {
   /* Fonts */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans:    var(--font-geist-sans);
+  --font-mono:    var(--font-geist-mono);
+  --font-serif:   var(--font-lora);
 
   /* Portfolio accent — Amber */
-  --color-accent:         #f59e0b;
-  --color-accent-light:   #fbbf24;
-  --color-accent-dark:    #d97706;
+  --color-accent:         #c2884a;
+  --color-accent-light:   #d4a06a;
+  --color-accent-dark:    #a8702e;
 
   /* Semantic tokens (resolved from :root / .dark) */
   --color-background:    var(--background);
@@ -46,57 +47,57 @@
 
 /* ─── Light Mode ──────────────────────────────────────────── */
 :root {
-  --background:  #fffbf5;
-  --surface:     #ffffff;
-  --surface-alt: #fef9ee;
-  --foreground:  #1c1917;
-  --muted-color: #78716c;
-  --border:      #e8dfd0;
+  --background:  #faf8f4;
+  --surface:     #f5f2ec;
+  --surface-alt: #ede9e0;
+  --foreground:  #161411;
+  --muted-color: #7c7166;
+  --border:      #ddd6c8;
 
   /* shadcn tokens */
-  --card:                  #ffffff;
-  --card-foreground:       #1c1917;
-  --popover:               #ffffff;
-  --popover-foreground:    #1c1917;
-  --primary:               #1c1917;
-  --primary-foreground:    #fffbf5;
-  --secondary:             #fef9ee;
-  --secondary-foreground:  #1c1917;
-  --muted:                 #fef9ee;
-  --muted-foreground:      #78716c;
-  --accent:                #fef9ee;
-  --accent-foreground:     #1c1917;
+  --card:                  #f5f2ec;
+  --card-foreground:       #161411;
+  --popover:               #f5f2ec;
+  --popover-foreground:    #161411;
+  --primary:               #161411;
+  --primary-foreground:    #faf8f4;
+  --secondary:             #ede9e0;
+  --secondary-foreground:  #161411;
+  --muted:                 #ede9e0;
+  --muted-foreground:      #7c7166;
+  --accent:                #ede9e0;
+  --accent-foreground:     #161411;
   --destructive:           oklch(0.577 0.245 27.325);
-  --input:                 #e8dfd0;
-  --ring:                  #f59e0b;
-  --radius:                0.625rem;
+  --input:                 #ddd6c8;
+  --ring:                  #c2884a;
+  --radius:                0.5rem;
 }
 
 /* ─── Dark Mode ───────────────────────────────────────────── */
 .dark {
-  --background:  #111110;
-  --surface:     #1c1917;
-  --surface-alt: #292524;
-  --foreground:  #fafaf9;
-  --muted-color: #a8a29e;
-  --border:      #3d3730;
+  --background:  #0f0e0c;
+  --surface:     #171510;
+  --surface-alt: #201e19;
+  --foreground:  #f0ece4;
+  --muted-color: #9c9080;
+  --border:      #302b22;
 
   /* shadcn tokens */
-  --card:                  #1c1917;
-  --card-foreground:       #fafaf9;
-  --popover:               #1c1917;
-  --popover-foreground:    #fafaf9;
-  --primary:               #fafaf9;
-  --primary-foreground:    #111110;
-  --secondary:             #292524;
-  --secondary-foreground:  #fafaf9;
-  --muted:                 #292524;
-  --muted-foreground:      #a8a29e;
-  --accent:                #292524;
-  --accent-foreground:     #fafaf9;
+  --card:                  #171510;
+  --card-foreground:       #f0ece4;
+  --popover:               #171510;
+  --popover-foreground:    #f0ece4;
+  --primary:               #f0ece4;
+  --primary-foreground:    #0f0e0c;
+  --secondary:             #201e19;
+  --secondary-foreground:  #f0ece4;
+  --muted:                 #201e19;
+  --muted-foreground:      #9c9080;
+  --accent:                #201e19;
+  --accent-foreground:     #f0ece4;
   --destructive:           oklch(0.704 0.191 22.216);
-  --input:                 #3d3730;
-  --ring:                  #f59e0b;
+  --input:                 #302b22;
+  --ring:                  #c2884a;
 }
 
 /* ─── Base Resets ─────────────────────────────────────────── */
@@ -120,27 +121,32 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ─── Editorial serif class ──────────────────────────────── */
+.font-serif {
+  font-family: var(--font-lora), Georgia, serif;
+}
+
 /* ─── Selection ───────────────────────────────────────────── */
 ::selection {
-  background-color: rgba(245, 158, 11, 0.2);
+  background-color: rgba(194, 136, 74, 0.18);
   color: var(--foreground);
 }
 
 /* ─── Scrollbar ───────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 /* ─── Focus ───────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid #f59e0b;
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
   border-radius: 4px;
 }

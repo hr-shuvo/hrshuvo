@@ -1,66 +1,66 @@
 export const ezduData = {
-  tagline: "Ezdu is what happens when a competitive programmer gets tired of how schools teach.",
+  tagline: "I built Ezdu because I couldn't find the thing I wanted to exist.",
   url: "https://ezdu.net",
 
   problem: {
-    headline: "Education is broken. Not the content — the experience.",
+    headline: "Students aren't forgetting because they're lazy. The tools are built wrong.",
     body: [
-      "Students sit through lectures, read textbooks, and forget 80% of it within a week. The problem isn't intelligence — it's engagement. Academic learning tools have been designed for compliance, not for the brain.",
-      "The retention problem is solved at the product level, not the content level. Nobody had rebuilt the experience layer for real academic subjects with the same rigor that consumer apps apply to habit formation.",
-      "That gap was Ezdu's reason to exist.",
+      "The pattern repeats: read the chapter, answer the questions, pass the test, forget it in three weeks. It's not a motivation problem. Passive consumption doesn't build retention — it just creates the feeling of having learned.",
+      "Consumer apps figured this out. Streaks, spaced repetition, immediate feedback — these mechanics work because the cognitive science behind them is real. But nobody had applied them seriously to actual school subjects. EdTech has produced a lot of content. It hasn't produced better learning.",
+      "That's what Ezdu is trying to fix.",
     ],
   },
 
   vision: {
     headline: "Learn anything. Remember everything.",
-    body: "Ezdu is building the learning infrastructure for the next generation of students — adaptive, gamified, and powered by AI. Mobile is the primary surface: learning happens in pockets of time, not at a desk. The goal is not just to help students pass exams, but to make learning something they actually want to do.",
+    body: "Ezdu generates structured, gamified lessons from any academic topic and adapts to how a student is actually progressing. Learning happens on mobile, in short sessions, not at a desk with a textbook. The goal isn't just passing exams — it's retention. The two aren't the same thing, and most tools don't treat them differently.",
   },
 
   challenges: [
     {
-      title: "AI Content Pipeline",
+      title: "Gamification that actually motivates",
       description:
-        "How do you turn any academic topic into structured, gamified learning content? We built an LLM-powered pipeline that generates lessons, questions, and feedback loops automatically.",
-      solved: "LLM integration with custom prompt engineering and content validation",
+        "A progress bar on a quiz isn't gamification. The real problem was designing mechanics that create genuine motivation — streaks that feel earned, progression that reflects actual mastery, not just time spent. Two systems were thrown away before the third one held.",
+      solved: "Iterated with real users, not hypotheses. The design that worked looked nothing like the first version.",
     },
     {
-      title: "Gamification Without Distraction",
+      title: "An LLM pipeline that doesn't lie",
       description:
-        "Streaks, XP, and challenges must motivate — not distract. Finding the right balance between engagement mechanics and actual learning was a product design challenge as much as an engineering one.",
-      solved: "Iterative UX testing and data-driven progression design",
+        "Generating a lesson is straightforward. Generating one that's factually accurate, pedagogically coherent, and consistently formatted across every subject is the hard part. One wrong fact in a chemistry lesson ends trust. The pipeline needed validation layers, not just a prompt.",
+      solved: "Multi-step generation with output checking and selective rewriting before anything touches the database.",
     },
     {
-      title: "Scalable Content Management",
+      title: "A schema that survives the product",
       description:
-        "Academic content is richly structured — text, formulas, images, code. Building a CMS that handles all these types while staying performant required careful schema design.",
-      solved: "MySQL with flexible content schema, S3 for assets, CDN for delivery",
+        "Academic content is structurally messy: formulas, code blocks, diagrams, multilingual text, multiple question types. The database schema needed to handle all of it without becoming expensive to query. A wrong decision here compounds over months.",
+      solved: "Designed the schema three times on paper. The third version is still running.",
     },
     {
-      title: "Cross-Platform Consistency",
+      title: "One API, two clients, no drift",
       description:
-        "The Flutter mobile app is the primary client — the web app is a companion surface. Both must feel native to their platform while sharing the same API and data layer. Progress, streaks, and state must be identical regardless of which surface the user is on.",
-      solved: "Single .NET Core API consumed by both clients, shared business logic",
+        "The Flutter app is the primary surface. The web app is secondary. Both consume the same .NET Core API. Progress, streaks, state — identical regardless of device. Any divergence in business logic between clients would eventually cause a data consistency problem.",
+      solved: "All business logic lives in the API. The clients render, they don't decide.",
     },
     {
-      title: "Real-time Progress Sync",
+      title: "Progress sync that feels instant",
       description:
-        "User progress must feel instant — no lag between completing a lesson and seeing your streak update. On mobile especially, this must work smoothly even on slower connections.",
-      solved: "Optimistic UI updates, background sync via API, push notifications via FCM/APNs",
+        "Complete a lesson, see the streak update — on mobile, on a slow connection. A visible delay between finishing and seeing the result breaks the reward loop. The loop is what keeps someone coming back.",
+      solved: "Optimistic UI updates on the client, background sync against the API. The user sees the result before confirmation.",
     },
   ],
 
   lessons: [
-    "Premature optimization delays shipping. Ship first, optimize what hurts.",
-    "Users don't care about your stack. They care about whether the thing works.",
-    "Data modeling is product design. A bad schema costs you six months later.",
-    "The hardest problems in a product are usually not technical.",
-    "Building alone forces clarity. Every decision is yours — and every mistake teaches you something.",
+    "Get it in front of users before it's ready. The gap between what you think they need and what they actually do is only visible after shipping.",
+    "The database schema you design on day one is still with you on day three hundred.",
+    "The hardest decisions weren't technical. They were about what not to build.",
+    "Working alone removes the option of blaming someone else. That's clarifying.",
+    "Most users will never read an error message, a tooltip, or a modal. Design for the person who skips everything.",
   ],
 
   roadmap: [
-    { phase: "Q3 2025", milestone: "Flutter mobile app launched — the primary Ezdu experience live on iOS and Android" },
-    { phase: "Q4 2025", milestone: "Teacher dashboard released — custom course creation and learner tracking" },
-    { phase: "Q1 2026", milestone: "AI content pipeline expanded — broader subject coverage, improved accuracy" },
-    { phase: "2026", milestone: "Institutional partnerships and offline-first mobile mode" },
+    { phase: "Shipped", milestone: "Flutter app live on iOS and Android" },
+    { phase: "Shipped", milestone: "LLM content pipeline — lessons and questions generated from any subject" },
+    { phase: "In Progress", milestone: "Teacher dashboard — course creation and per-student tracking" },
+    { phase: "Next", milestone: "Offline-first mobile mode for low-connectivity classrooms" },
   ],
 };

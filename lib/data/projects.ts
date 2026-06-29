@@ -20,75 +20,62 @@ export const projects: Project[] = [
   {
     id: "ezdu",
     title: "Ezdu",
-    tagline: "Gamified learning for academic education",
+    tagline: "Gamified academic learning, mobile-first",
     problem:
-      "Traditional academic learning platforms are passive and forgettable. Students consume content but don't retain it. There was no Duolingo for real academic subjects.",
+      "Every EdTech tool I looked at was built around passive consumption — watch, read, quiz, forget. The mechanics that make consumer apps sticky hadn't been taken seriously in academic learning. Nobody had built the product layer for retention, only for content delivery.",
     solution:
-      "Built a gamified, Duolingo-inspired platform where students learn through streaks, challenges, and immediate feedback. AI-powered content structuring makes any topic into an engaging learning path.",
+      "Built the whole thing solo: .NET Core API, Flutter mobile app as the primary client, Next.js web companion, and an LLM pipeline that turns any academic topic into structured, gamified lessons. Designed and discarded two gamification systems before one held under real use.",
     architecture:
-      ".NET Core API + Flutter mobile (primary) + Next.js web, MySQL for persistence, AWS S3 for content storage, LLM integration for content generation",
+      ".NET Core API · Flutter (primary) · Next.js · MySQL · Redis · AWS S3 · LLM pipeline",
     outcome:
-      "Live at ezdu.net — solo-built, AI-powered, serving real learners. The only gamified academic learning platform built on a full custom backend with an LLM content pipeline.",
-    tech: [".NET Core", "Next.js", "Flutter", "MySQL", "AWS", "S3", "LLM", "TypeScript"],
+      "Live at ezdu.net. Real users, real retention data. A custom backend with an LLM content pipeline — not a CMS with a quiz plugin on top.",
+    tech: [".NET Core", "Flutter", "Next.js", "MySQL", "Redis", "AWS", "TypeScript"],
     links: [{ label: "Visit Ezdu", url: "https://ezdu.net" }],
     featured: true,
   },
   {
     id: "better-ielts",
     title: "Better IELTS",
-    tagline: "Real mock exam experience for IELTS preparation",
+    tagline: "IELTS preparation with real exam conditions",
     problem:
-      "IELTS preparation tools were either too expensive or too shallow. Learners had no way to experience a real exam environment with instant feedback and performance tracking.",
+      "IELTS prep tools were either expensive coaching or shallow quiz apps. Neither replicated the experience of sitting the actual exam — timed, pressured, with speaking assessed in real time. The gap between practice and test day was still enormous.",
     solution:
-      "Built a full mock exam platform with real-time calling features (speaking tests via WebSocket), automated scoring, performance analytics, and subscription management — all in one product.",
+      "Real-time speaking tests over WebSocket via SignalR, automated scoring, full mock exams, performance analytics across sessions, and Stripe-integrated subscriptions. Each feature came from a specific learner need, not a feature list.",
     architecture:
-      ".NET Core API + Next.js, MySQL + Redis for data and caching, MinIO for file storage, SignalR/WebSocket for real-time communication, Stripe for payments, Docker + AWS for deployment",
+      ".NET Core API · Next.js · MySQL · Redis · MinIO · SignalR · Stripe · Docker · AWS",
     outcome:
-      "A production-grade IELTS preparation platform live at betterielts.com with real-time speaking tests, mock exams, and subscription billing.",
-    tech: [
-      ".NET Core",
-      "Next.js",
-      "MySQL",
-      "Redis",
-      "MinIO",
-      "SignalR",
-      "WebSocket",
-      "AWS",
-      "Docker",
-      "Stripe",
-    ],
+      "Live at betterielts.com. Real-time speaking tests, mock exams, subscription billing — the full product.",
+    tech: [".NET Core", "Next.js", "MySQL", "Redis", "SignalR", "Stripe", "Docker", "AWS"],
     links: [{ label: "Visit Better IELTS", url: "https://betterielts.com" }],
     featured: true,
   },
   {
     id: "school-management",
     title: "School Management System",
-    tagline: "End-to-end school operations platform",
+    tagline: "Student records, attendance, grades — unified",
     problem:
-      "Schools were managing students, attendance, and grades through disconnected tools — spreadsheets, paper records, and manual processes that didn't talk to each other.",
+      "Schools were tracking students through a combination of spreadsheets, paper, and institutional memory. Nothing connected. Reports were compiled by hand.",
     solution:
-      "Built a unified school management system covering student registration, daily attendance tracking, grade management, and reporting — giving teachers and administrators one place to manage everything.",
-    architecture:
-      ".NET Core MVC backend, MSSQL for data, JavaScript + Bootstrap for responsive UI, Selenium for automated test coverage",
+      "A single system for student registration, daily attendance, grade management, and automated reporting. One place for everything.",
+    architecture: ".NET Core MVC · MSSQL · JavaScript · Bootstrap · Selenium",
     outcome:
-      "Deployed at OnnoRokom Software Ltd. Replaced spreadsheet-based tracking for multiple schools. First production system I owned end to end.",
-    tech: [".NET Core MVC", "MSSQL", "JavaScript", "Bootstrap", "Selenium", "Git"],
+      "Deployed at OnnoRokom Software Ltd, running in multiple schools. The first system I built where a bug meant a teacher couldn't do her job.",
+    tech: [".NET Core MVC", "MSSQL", "JavaScript", "Bootstrap", "Selenium"],
     links: [],
     featured: false,
   },
   {
     id: "ota-system",
     title: "A4Aero OTA Platform",
-    tagline: "Full-stack online travel agency system",
+    tagline: "Booking, agents, and admin — one system",
     problem:
-      "A growing travel agency needed a complete digital platform — not just a website, but a full operational system with separate modules for users, travel agents, and admins.",
+      "A4Aero needed operational infrastructure, not just a website. Three user types — travelers, agents, admins — with different permissions, workflows, and views. Plus live integrations with flight and hotel APIs that fail in unpredictable ways.",
     solution:
-      "Designed and built the entire OTA system from scratch: booking flows, agent management, admin controls, and third-party API integrations for flights, hotels, and payment gateways.",
-    architecture:
-      "C# .NET Core REST API backend, Angular frontend, SQL Server, Git version control with feature-branch workflow",
+      "Designed and built the entire system from schema to deployment. Booking flows, agent management, admin controls, third-party API integrations. One engineer, full ownership.",
+    architecture: "C# .NET Core REST API · Angular · SQL Server",
     outcome:
-      "A complete OTA system in production — user, agent, and admin modules, third-party flight and hotel APIs, payment gateway, all designed from schema to deployment by one engineer.",
-    tech: ["C#", ".NET Core", "Angular", "SQL Server", "REST API", "Git"],
+      "In production. Someone is booking a flight through an API I designed right now.",
+    tech: ["C#", ".NET Core", "Angular", "SQL Server", "REST API"],
     links: [],
     featured: false,
   },
