@@ -44,7 +44,7 @@ export function Navbar() {
                   style={{ color: "var(--foreground)", opacity: active ? 1 : 0.5, fontWeight: active ? 600 : 400 }}
                 >
                   <span
-                    className={`transition-opacity duration-200 ${active ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                    className={`transition-all duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] ${active ? "opacity-100 translate-x-0" : "opacity-0 translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0"}`}
                   >
                     [
                   </span>
@@ -61,7 +61,7 @@ export function Navbar() {
                     </span>
                   </span>
                   <span
-                    className={`transition-opacity duration-200 ${active ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                    className={`transition-all duration-300 ease-[cubic-bezier(0.76,0,0.24,1)] ${active ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-1.5 group-hover:opacity-100 group-hover:translate-x-0"}`}
                   >
                     ]
                   </span>

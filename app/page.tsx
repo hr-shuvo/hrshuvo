@@ -35,9 +35,7 @@ export default function Home() {
         </div>
 
         <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
-          <div className="grid lg:grid-cols-[1fr_260px] lg:gap-16 lg:items-end">
-
-            {/* Left column */}
+          <div>
             <div>
               {/* Animated status */}
               <div className="mb-12 flex items-center gap-3">
@@ -119,54 +117,6 @@ export default function Home() {
               </nav>
             </div>
 
-            {/* Right column — product previews (desktop only) */}
-            <div className="hidden lg:flex flex-col gap-2.5">
-              <p className="text-xs tracking-[0.2em] text-[var(--muted-color)] uppercase mb-2">
-                Live products
-              </p>
-
-              {[
-                {
-                  name: "Ezdu",
-                  tag: "Mobile learning · EdTech",
-                  accent: "#10b981",
-                  href: "/projects",
-                }
-              ].map((p) => (
-                <Link
-                  key={p.name}
-                  href={p.href}
-                  className="group block border border-[var(--border)] p-4 hover:border-[var(--foreground)] transition-all duration-200"
-                  style={{ background: "var(--surface)" }}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: p.accent }} />
-                      <p
-                        className="text-sm font-medium text-[var(--foreground)] group-hover:text-[var(--color-accent)] transition-colors duration-200"
-                        style={{ letterSpacing: "-0.01em" }}
-                      >
-                        {p.name}
-                      </p>
-                    </div>
-                    <span
-                      className="text-xs px-1.5 py-0.5 flex-shrink-0"
-                      style={{ background: `${p.accent}1a`, color: p.accent }}
-                    >
-                      Live
-                    </span>
-                  </div>
-                  <p className="text-xs text-[var(--muted-color)]">{p.tag}</p>
-                </Link>
-              ))}
-
-              <Link
-                href="/projects"
-                className="text-right text-xs text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors duration-200 mt-1 tracking-[0.05em]"
-              >
-                All work →
-              </Link>
-            </div>
           </div>
         </div>
       </section>
