@@ -3,6 +3,10 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { projects } from "@/lib/data/projects";
 import { ProjectMockup } from "@/components/ui/ProjectMockup";
+import {
+  SectionIllustration,
+  ProjectsHeaderIllustration,
+} from "@/components/illustrations";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -40,7 +44,13 @@ export default function ProjectsPage() {
 
       {/* Header */}
       <div className="mx-auto max-w-7xl px-6 pt-32 sm:px-8 md:pt-40 lg:px-12 lg:pt-48">
-        <div className="border-t border-[var(--border)] pt-14">
+        <div className="relative overflow-hidden border-t border-[var(--border)] pt-14">
+          <SectionIllustration
+            variant="decorator"
+            className="top-0 right-0 hidden lg:block w-[220px] xl:w-[260px]"
+          >
+            <ProjectsHeaderIllustration />
+          </SectionIllustration>
           <p className="mb-5 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">Work</p>
           <h1
             className="font-serif tracking-tight text-[var(--foreground)]"

@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
 import { journeyItems } from "@/lib/data/journey";
+import {
+  SectionIllustration,
+  AboutIntroIllustration,
+  JourneyIllustration,
+  InterestsIllustration,
+  AwardsIllustration,
+  ContactIllustration,
+} from "@/components/illustrations";
 
 export const metadata: Metadata = {
   title: "About",
@@ -79,7 +87,13 @@ export default function AboutPage() {
 
       {/* ── Introduction ── */}
       <section className="mx-auto max-w-7xl px-6 pt-28 sm:px-8 md:pt-36 lg:px-12 lg:pt-44">
-        <div className="border-t border-[var(--border)] pt-14">
+        <div className="relative overflow-hidden border-t border-[var(--border)] pt-14">
+          <SectionIllustration
+            variant="decorator"
+            className="top-0 right-0 hidden lg:block w-[200px] xl:w-[240px]"
+          >
+            <AboutIntroIllustration />
+          </SectionIllustration>
 
           <p className="mb-8 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">About</p>
 
@@ -126,7 +140,13 @@ export default function AboutPage() {
 
       {/* ── Journey ── */}
       <section className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mt-24 border-t border-[var(--border)] pt-14 lg:mt-32">
+        <div className="relative overflow-hidden mt-24 border-t border-[var(--border)] pt-14 lg:mt-32">
+          <SectionIllustration
+            variant="decorator"
+            className="top-12 right-0 hidden md:block w-[100px] lg:w-[120px]"
+          >
+            <JourneyIllustration />
+          </SectionIllustration>
           <p className="mb-12 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Journey</p>
           <div>
             {journeyItems.map((item) => (
@@ -174,7 +194,13 @@ export default function AboutPage() {
 
       {/* ── Interests ── */}
       <section className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mt-24 border-t border-[var(--border)] pt-14 lg:mt-32">
+        <div className="relative overflow-hidden mt-24 border-t border-[var(--border)] pt-14 lg:mt-32">
+          <SectionIllustration
+            variant="decorator"
+            className="top-10 right-0 hidden md:block w-[130px] lg:w-[150px]"
+          >
+            <InterestsIllustration />
+          </SectionIllustration>
           <p className="mb-8 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Interests</p>
           <div className="flex flex-wrap gap-3">
             {interests.map((item) => (
@@ -191,7 +217,13 @@ export default function AboutPage() {
 
       {/* ── Achievements ── */}
       <section className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mt-24 border-t border-[var(--border)] pt-14 lg:mt-32">
+        <div className="relative overflow-hidden mt-24 border-t border-[var(--border)] pt-14 lg:mt-32">
+          <SectionIllustration
+            variant="decorator"
+            className="top-8 right-2 hidden md:block w-[56px] lg:w-[64px]"
+          >
+            <AwardsIllustration />
+          </SectionIllustration>
           <p className="mb-12 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Awards &amp; Achievements</p>
           <div className="grid gap-px sm:grid-cols-2" style={{ background: "var(--border)" }}>
             {achievements.map((a) => (
@@ -210,9 +242,15 @@ export default function AboutPage() {
 
       {/* ── Contact ── */}
       <section className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mt-24 border-t border-[var(--border)] pt-14 pb-32 lg:mt-32 lg:pb-44">
+        <div className="relative overflow-hidden mt-24 border-t border-[var(--border)] pt-14 pb-32 lg:mt-32 lg:pb-44">
+          <SectionIllustration
+            variant="decorator"
+            className="top-16 right-0 hidden lg:block w-[150px] xl:w-[180px]"
+          >
+            <ContactIllustration />
+          </SectionIllustration>
           <p className="mb-12 text-xs tracking-[0.25em] text-[var(--muted-color)] uppercase">Contact</p>
-          <div className="flex flex-col">
+          <div className="flex flex-col max-w-2xl">
             {contacts.map((c) => (
               <a
                 key={c.label}

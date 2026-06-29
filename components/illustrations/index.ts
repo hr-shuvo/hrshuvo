@@ -1,0 +1,11 @@
+export { SectionIllustration } from "./SectionIllustration";
+export { AboutIntroIllustration } from "./AboutIntroIllustration";
+export { JourneyIllustration } from "./JourneyIllustration";
+export { InterestsIllustration } from "./InterestsIllustration";
+export { AwardsIllustration } from "./AwardsIllustration";
+export { ContactIllustration } from "./ContactIllustration";
+export { ExperienceHeaderIllustration } from "./ExperienceHeaderIllustration";
+export { IndependentIllustration } from "./IndependentIllustration";
+export { ExpertiseHeaderIllustration } from "./ExpertiseHeaderIllustration";
+export { ProjectsHeaderIllustration } from "./ProjectsHeaderIllustration";
+export { SkillIcon, type SkillArea } from "./SkillIcon";

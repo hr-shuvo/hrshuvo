@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import {
+  SectionIllustration,
+  ExpertiseHeaderIllustration,
+  SkillIcon,
+  type SkillArea,
+} from "@/components/illustrations";
 
 export const metadata: Metadata = {
   title: "Expertise",
   description: "Skills, tools, and the education behind the engineering.",
 };
 
-const skills = [
+const skills: { area: SkillArea; items: string[] }[] = [
   { area: "Backend",        items: [".NET Core", "C#", "REST APIs", "SignalR"] },
   { area: "Frontend",       items: ["Next.js", "React", "TypeScript", "Tailwind"] },
   { area: "Mobile",         items: ["Flutter", "iOS", "Android"] },
@@ -29,7 +35,13 @@ export default function ExpertisePage() {
 
       {/* ── Introduction ── */}
       <section className="mx-auto max-w-7xl px-6 pt-28 sm:px-8 md:pt-36 lg:px-12 lg:pt-44">
-        <div className="border-t border-[var(--border)] pt-14">
+        <div className="relative overflow-hidden border-t border-[var(--border)] pt-14">
+          <SectionIllustration
+            variant="decorator"
+            className="top-0 right-0 hidden lg:block w-[200px] xl:w-[240px]"
+          >
+            <ExpertiseHeaderIllustration />
+          </SectionIllustration>
 
           <p className="mb-8 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">Expertise</p>
 
@@ -74,7 +86,12 @@ export default function ExpertisePage() {
                 className="p-6 transition-colors duration-150 hover:bg-[var(--surface-alt)]"
                 style={{ background: "var(--surface)" }}
               >
-                <p className="text-xs tracking-[0.12em] text-[var(--muted-color)] uppercase mb-4">{s.area}</p>
+                <div className="flex items-center gap-3 mb-4">
+                  <SectionIllustration variant="icon">
+                    <SkillIcon area={s.area} />
+                  </SectionIllustration>
+                  <p className="text-xs tracking-[0.12em] text-[var(--muted-color)] uppercase">{s.area}</p>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {s.items.map((item) => (
                     <span

@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { ExternalLink } from "lucide-react";
 import { experiences } from "@/lib/data/experience";
+import {
+  SectionIllustration,
+  ExperienceHeaderIllustration,
+  IndependentIllustration,
+} from "@/components/illustrations";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -24,7 +29,13 @@ export default function ExperiencePage() {
 
       {/* Header */}
       <div className="mx-auto max-w-7xl px-6 pt-32 sm:px-8 md:pt-40 lg:px-12 lg:pt-48">
-        <div className="border-t border-[var(--border)] pt-14">
+        <div className="relative overflow-hidden border-t border-[var(--border)] pt-14">
+          <SectionIllustration
+            variant="decorator"
+            className="top-0 right-0 hidden lg:block w-[220px] xl:w-[260px]"
+          >
+            <ExperienceHeaderIllustration />
+          </SectionIllustration>
           <p className="mb-5 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">Career</p>
           <h1
             className="font-serif tracking-tight text-[var(--foreground)]"
@@ -184,8 +195,14 @@ export default function ExperiencePage() {
 
       {/* Current chapter */}
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mt-20 border-t border-[var(--border)] py-16 lg:mt-28">
-          <div className="flex items-start gap-5">
+        <div className="relative overflow-hidden mt-20 border-t border-[var(--border)] py-16 lg:mt-28">
+          <SectionIllustration
+            variant="decorator"
+            className="top-8 right-0 hidden md:block w-[110px] lg:w-[130px]"
+          >
+            <IndependentIllustration />
+          </SectionIllustration>
+          <div className="flex items-start gap-5 max-w-2xl">
             <div
               className="flex items-center justify-center rounded-xl flex-shrink-0"
               style={{ width: 52, height: 52, border: "2px solid var(--color-accent)" }}
