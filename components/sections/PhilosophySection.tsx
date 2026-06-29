@@ -9,49 +9,38 @@ const principles = [
   {
     number: "01",
     name: "Simplicity",
-    body: "The solution should be no more complex than the problem demands. Complexity is a liability.",
+    body: "Every abstraction you add is debt someone else pays. The best architecture is the one you can explain in five minutes.",
   },
   {
     number: "02",
-    name: "Scalability",
-    body: "Build for 10x, design for 100x, architect for 1000x. The decisions you make at the start compound.",
+    name: "Maintainability",
+    body: "I write code for the engineer who inherits it at 2am during an incident. That person is usually future me.",
   },
   {
     number: "03",
-    name: "Security",
-    body: "Security isn't a feature you add at the end. It's the foundation everything else is built on.",
+    name: "Performance",
+    body: "Every render delay is a product decision, not a technical one. I treat latency as UX, not ops.",
   },
   {
     number: "04",
-    name: "Maintainability",
-    body: "Code is read far more often than it's written. Write for the engineer who comes next.",
-  },
-  {
-    number: "05",
-    name: "Performance",
-    body: "Speed is a feature. Latency is a choice. Every millisecond of delay is a user experience decision.",
-  },
-  {
-    number: "06",
     name: "User-First",
-    body: "If a user has to think about how to use something, you've already made a mistake.",
+    body: "The measure of good engineering is whether the user ever has to think about the engineering. They shouldn't.",
   },
 ];
 
 const containerVariants: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.08 },
+    transition: { staggerChildren: 0.1 },
   },
 };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 32, filter: "blur(4px)" },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, x: -16 },
   visible: {
     opacity: 1,
-    y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+    x: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
   },
 };
 
@@ -65,13 +54,13 @@ export function PhilosophySection() {
       <Container>
         <AnimatedSection>
           <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
-            How I Think
+            Convictions
           </p>
           <h2
             className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"
             style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
           >
-            Engineering philosophy.
+            What I won&apos;t compromise on.
           </h2>
           <p className="mb-16 max-w-xl text-lg leading-relaxed text-[var(--muted-color)]">
             These aren&apos;t guidelines I follow — they&apos;re convictions
@@ -84,18 +73,15 @@ export function PhilosophySection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-px sm:grid-cols-2"
         >
           {principles.map((p) => (
             <motion.div
               key={p.number}
-              variants={cardVariants}
-              whileHover={{ scale: 1.03, y: -8 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 cursor-default"
-              style={{ boxShadow: "0 2px 12px rgba(245,158,11,0.06)" }}
+              variants={itemVariants}
+              className="group border-l-2 border-[var(--border)] bg-[var(--surface)] p-8 transition-colors duration-300 hover:border-[var(--color-accent)]"
             >
-              <p className="mb-3 font-mono text-xs text-[var(--color-accent)]">{p.number}</p>
+              <p className="mb-4 font-mono text-xs text-[var(--color-accent)]">{p.number}</p>
               <h3 className="mb-3 text-lg font-semibold text-[var(--foreground)]">
                 {p.name}
               </h3>

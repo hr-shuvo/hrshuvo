@@ -2,11 +2,11 @@ import Link from "next/link";
 import { ThemeToggle } from "@/components/primitives/ThemeToggle";
 
 const links = [
-  { label: "Journey", href: "#journey" },
-  { label: "Ezdu", href: "#ezdu" },
-  { label: "Projects", href: "#projects" },
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "Contact", href: "#contact" },
+  { label: "Story",    href: "#journey"    },
+  { label: "Ezdu",     href: "#ezdu"       },
+  { label: "Projects", href: "#projects"   },
+  { label: "Thinking", href: "#philosophy" },
+  { label: "Contact",  href: "#contact"    },
 ];
 
 export function Navbar() {
@@ -43,7 +43,7 @@ export function Navbar() {
             href="#contact"
             className="hidden md:inline-flex items-center rounded-full bg-[var(--foreground)] px-4 py-1.5 text-sm font-medium text-[var(--background)] hover:opacity-80 transition-opacity"
           >
-            Let&apos;s Talk
+            Work Together
           </a>
         </div>
       </div>

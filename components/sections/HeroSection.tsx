@@ -11,7 +11,7 @@ export function HeroSection() {
       aria-label="Hero"
       className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16"
     >
-      {/* Subtle background radial gradient */}
+      {/* Warm background radial */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -27,9 +27,9 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-6 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase"
+            className="mb-6 text-sm font-medium text-[var(--muted-color)]"
           >
-            Software Engineer · Product Builder · System Architect
+            Full-stack engineer. Solo founder. Dhaka.
           </motion.p>
 
           {/* Headline */}
@@ -40,9 +40,9 @@ export function HeroSection() {
             className="mb-8 font-extrabold leading-[1.05] tracking-tight text-[var(--foreground)]"
             style={{ fontSize: "clamp(3rem, 7vw, 6.5rem)", fontWeight: 800 }}
           >
-            I build things
+            I left a job
             <br />
-            that <GradientText>matter.</GradientText>
+            to build <GradientText>Ezdu.</GradientText>
           </motion.h1>
 
           {/* Subtext */}
@@ -52,17 +52,10 @@ export function HeroSection() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
             className="mb-12 max-w-xl text-lg leading-relaxed text-[var(--muted-color)] sm:text-xl"
           >
-            Full-stack engineer focused on scalable systems, clean architecture,
-            and products that solve real problems. Currently building{" "}
-            <a
-              href="https://ezdu.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--foreground)] underline underline-offset-4 decoration-[var(--border)] hover:decoration-[var(--color-accent)] transition-colors"
-            >
-              Ezdu
-            </a>{" "}
-            — rethinking how education works.
+            Ezdu is a gamified learning platform for academic education — mobile-first, AI-powered,
+            built by one person. Before that: OTA systems at A4Aero, school software at OnnoRokom,
+            500+ competitive programming problems. Two and a half years of professional experience.
+            One product that&apos;s live.
           </motion.p>
 
           {/* CTAs */}
@@ -73,10 +66,10 @@ export function HeroSection() {
             className="flex flex-wrap items-center gap-4"
           >
             <a
-              href="#projects"
+              href="#journey"
               className="inline-flex items-center rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-medium text-[var(--background)] hover:opacity-80 transition-opacity"
             >
-              Explore My Work
+              See the journey
             </a>
             <a
               href="#ezdu"

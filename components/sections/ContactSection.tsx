@@ -32,18 +32,18 @@ export function ContactSection() {
         <AnimatedSection>
           <div className="text-center">
             <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
-              Get In Touch
+              What&apos;s next
             </p>
             <h2
               className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"
               style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
             >
-              Let&apos;s build something.
+              If you&apos;re working on something real,<br className="hidden sm:block" /> I want to hear about it.
             </h2>
             <p className="mx-auto mb-12 max-w-md text-lg leading-relaxed text-[var(--muted-color)]">
-              Open to interesting problems, meaningful collaborations, and
-              opportunities that align with what I care about. If that sounds
-              like you — reach out.
+              I&apos;m open to building something together — whether that&apos;s a founding team,
+              a hard engineering problem, or a product that doesn&apos;t exist yet.
+              I&apos;m based in Dhaka and work remotely. Email is the fastest path.
             </p>
 
             {/* Primary CTA */}
@@ -80,7 +80,7 @@ export function ContactSection() {
             {/* Location */}
             <div className="mt-8 flex items-center justify-center gap-1.5 text-sm text-[var(--muted-color)]">
               <MapPin size={14} />
-              <span>Mirpur-13, Dhaka, Bangladesh</span>
+              <span>Dhaka, Bangladesh — open to remote</span>
             </div>
           </div>
         </AnimatedSection>

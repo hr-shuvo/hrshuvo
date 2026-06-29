@@ -13,7 +13,7 @@ export function JourneySection() {
         {/* Section header */}
         <AnimatedSection>
           <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
-            Background
+            Career
           </p>
           <h2
             className="mb-20 font-extrabold tracking-tight text-[var(--foreground)]"

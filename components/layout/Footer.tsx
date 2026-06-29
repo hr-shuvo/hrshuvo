@@ -39,7 +39,7 @@ export function Footer() {
     <footer className="border-t border-[var(--border)] bg-[var(--background)]">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row sm:px-8 lg:px-12">
         <p className="text-sm text-[var(--muted-color)]">
-          © {new Date().getFullYear()} Md Harun Or Rashid Shuvo. All rights reserved.
+          Shuvo · {new Date().getFullYear()}
         </p>
 
         <div className="flex items-center gap-4">

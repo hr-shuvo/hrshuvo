@@ -13,7 +13,7 @@ export function ProjectsSection() {
       <Container>
         <AnimatedSection>
           <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
-            Work
+            Shipped
           </p>
           <h2
             className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"

@@ -13,7 +13,7 @@ export function EzduSection() {
         {/* Header */}
         <AnimatedSection>
           <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
-            Featured Project
+            The centerpiece
           </p>
           <div className="mb-16 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
             <h2
@@ -43,7 +43,7 @@ export function EzduSection() {
             }}
           >
             <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--color-accent-light)] uppercase">
-              EdTech · Mobile-First · Gamification · AI
+              The EdTech space is full of content. What it lacks is thoughtful engineering.
             </p>
             <h3 className="mb-4 text-2xl font-semibold text-white sm:text-3xl">
               {ezduData.tagline}

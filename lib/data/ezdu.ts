@@ -1,12 +1,12 @@
 export const ezduData = {
-  tagline: "Gamified learning for academic education — mobile-first",
+  tagline: "Ezdu is what happens when a competitive programmer gets tired of how schools teach.",
   url: "https://ezdu.net",
 
   problem: {
     headline: "Education is broken. Not the content — the experience.",
     body: [
       "Students sit through lectures, read textbooks, and forget 80% of it within a week. The problem isn't intelligence — it's engagement. Academic learning tools have been designed for compliance, not for the brain.",
-      "Duolingo proved that gamification works for language learning. Nobody had applied that same depth of thinking to real academic subjects — mathematics, science, history, programming.",
+      "The retention problem is solved at the product level, not the content level. Nobody had rebuilt the experience layer for real academic subjects with the same rigor that consumer apps apply to habit formation.",
       "That gap was Ezdu's reason to exist.",
     ],
   },
@@ -38,8 +38,8 @@ export const ezduData = {
     {
       title: "Cross-Platform Consistency",
       description:
-        "The React Native mobile app is the primary client — the web app is a companion surface. Both must feel native to their platform while sharing the same API and data layer. Progress, streaks, and state must be identical regardless of which surface the user is on.",
-      solved: "Single .NET Core API consumed by both clients, shared business logic, Flutter for mobile and Next.js for web",
+        "The Flutter mobile app is the primary client — the web app is a companion surface. Both must feel native to their platform while sharing the same API and data layer. Progress, streaks, and state must be identical regardless of which surface the user is on.",
+      solved: "Single .NET Core API consumed by both clients, shared business logic",
     },
     {
       title: "Real-time Progress Sync",
@@ -58,9 +58,9 @@ export const ezduData = {
   ],
 
   roadmap: [
-    { phase: "Now", milestone: "Core learning engine live — web + mobile apps in active development" },
-    { phase: "Q3 2025", milestone: "Flutter mobile app public launch — the primary Ezdu experience" },
-    { phase: "Q4 2025", milestone: "Teacher dashboard and custom course creation" },
+    { phase: "Q3 2025", milestone: "Flutter mobile app launched — the primary Ezdu experience live on iOS and Android" },
+    { phase: "Q4 2025", milestone: "Teacher dashboard released — custom course creation and learner tracking" },
+    { phase: "Q1 2026", milestone: "AI content pipeline expanded — broader subject coverage, improved accuracy" },
     { phase: "2026", milestone: "Institutional partnerships and offline-first mobile mode" },
   ],
 };

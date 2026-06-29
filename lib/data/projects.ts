@@ -26,9 +26,9 @@ export const projects: Project[] = [
     solution:
       "Built a gamified, Duolingo-inspired platform where students learn through streaks, challenges, and immediate feedback. AI-powered content structuring makes any topic into an engaging learning path.",
     architecture:
-      ".NET Core API + Next.js frontend, MySQL for persistence, AWS S3 for content storage, LLM integration for content generation",
+      ".NET Core API + Flutter mobile (primary) + Next.js web, MySQL for persistence, AWS S3 for content storage, LLM integration for content generation",
     outcome:
-      "A fully functional EdTech platform live at ezdu.net, serving academic learners with AI-assisted content and gamified progression.",
+      "Live at ezdu.net — solo-built, AI-powered, serving real learners. The only gamified academic learning platform built on a full custom backend with an LLM content pipeline.",
     tech: [".NET Core", "Next.js", "Flutter", "MySQL", "AWS", "S3", "LLM", "TypeScript"],
     links: [{ label: "Visit Ezdu", url: "https://ezdu.net" }],
     featured: true,
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     architecture:
       ".NET Core MVC backend, MSSQL for data, JavaScript + Bootstrap for responsive UI, Selenium for automated test coverage",
     outcome:
-      "A production system deployed at OnnoRokom Software Ltd, used by real schools with measurable reduction in administrative overhead and manual data entry.",
+      "Deployed at OnnoRokom Software Ltd. Replaced spreadsheet-based tracking for multiple schools. First production system I owned end to end.",
     tech: [".NET Core MVC", "MSSQL", "JavaScript", "Bootstrap", "Selenium", "Git"],
     links: [],
     featured: false,
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     architecture:
       "C# .NET Core REST API backend, Angular frontend, SQL Server, Git version control with feature-branch workflow",
     outcome:
-      "A production OTA system handling real bookings, serving multiple user roles simultaneously with optimized APIs designed for high traffic.",
+      "A complete OTA system in production — user, agent, and admin modules, third-party flight and hotel APIs, payment gateway, all designed from schema to deployment by one engineer.",
     tech: ["C#", ".NET Core", "Angular", "SQL Server", "REST API", "Git"],
     links: [],
     featured: false,
