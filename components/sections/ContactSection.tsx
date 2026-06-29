@@ -1,9 +1,7 @@
 "use client";
 
-import { Mail, MapPin } from "lucide-react";
-import { Section } from "@/components/primitives/Section";
-import { Container } from "@/components/primitives/Container";
-import { AnimatedSection } from "@/components/primitives/AnimatedSection";
+import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
 
 function GitHubIcon({ size = 18 }: { size?: number }) {
   return (
@@ -23,68 +21,82 @@ function LinkedInIcon({ size = 18 }: { size?: number }) {
 
 export function ContactSection() {
   return (
-    <Section
-      id="contact"
-      aria-label="Contact"
-      className="bg-[var(--surface-alt)]"
-    >
-      <Container size="md">
-        <AnimatedSection>
-          <div className="text-center">
-            <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
-              What&apos;s next
+    <section id="contact" aria-label="Contact" className="relative overflow-hidden">
+      {/* Warm glow behind the text */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(245,158,11,0.08) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 py-24 sm:px-8 md:py-32 lg:px-12 lg:py-40">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="mb-6 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
+            What&apos;s next
+          </p>
+
+          {/* Massive headline — no container constraint */}
+          <h2
+            className="mb-12 font-extrabold leading-[0.9] tracking-tight text-[var(--foreground)]"
+            style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}
+          >
+            If you&apos;re working
+            <br />
+            on something real,
+            <br />
+            <span className="text-[var(--muted-color)]">I want to hear.</span>
+          </h2>
+
+          {/* Bottom row: body + contact */}
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+            <p className="max-w-md text-lg leading-relaxed text-[var(--muted-color)]">
+              Open to founding teams, hard engineering problems, and products that
+              don&apos;t exist yet. Based in Dhaka, working remotely.
             </p>
-            <h2
-              className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
-            >
-              If you&apos;re working on something real,<br className="hidden sm:block" /> I want to hear about it.
-            </h2>
-            <p className="mx-auto mb-12 max-w-md text-lg leading-relaxed text-[var(--muted-color)]">
-              I&apos;m open to building something together — whether that&apos;s a founding team,
-              a hard engineering problem, or a product that doesn&apos;t exist yet.
-              I&apos;m based in Dhaka and work remotely. Email is the fastest path.
-            </p>
 
-            {/* Primary CTA */}
-            <a
-              href="mailto:hrshuvo207@gmail.com"
-              className="mb-10 inline-flex items-center gap-2 rounded-full bg-[var(--foreground)] px-8 py-4 text-base font-medium text-[var(--background)] hover:opacity-80 transition-opacity"
-            >
-              <Mail size={18} />
-              hrshuvo207@gmail.com
-            </a>
-
-            {/* Social links */}
-            <div className="flex items-center justify-center gap-6">
+            <div className="flex flex-col gap-5">
               <a
-                href="https://github.com/hr-shuvo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
+                href="mailto:hrshuvo207@gmail.com"
+                className="inline-flex items-center gap-2.5 rounded-full bg-[var(--foreground)] px-7 py-3.5 text-base font-medium text-[var(--background)] hover:opacity-80 transition-opacity self-start"
               >
-                <GitHubIcon size={18} />
-                GitHub
+                <Mail size={17} />
+                hrshuvo207@gmail.com
               </a>
-              <a
-                href="https://linkedin.com/in/hrshuvo9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
-              >
-                <LinkedInIcon size={18} />
-                LinkedIn
-              </a>
-            </div>
 
-            {/* Location */}
-            <div className="mt-8 flex items-center justify-center gap-1.5 text-sm text-[var(--muted-color)]">
-              <MapPin size={14} />
-              <span>Dhaka, Bangladesh — open to remote</span>
+              <div className="flex items-center gap-6 pl-1">
+                <a
+                  href="https://github.com/hr-shuvo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
+                >
+                  <GitHubIcon size={16} />
+                  hr-shuvo
+                </a>
+                <a
+                  href="https://linkedin.com/in/hrshuvo9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
+                >
+                  <LinkedInIcon size={16} />
+                  hrshuvo9
+                </a>
+                <span className="text-sm text-[var(--muted-color)]">
+                  Dhaka, BD
+                </span>
+              </div>
             </div>
           </div>
-        </AnimatedSection>
-      </Container>
-    </Section>
+        </motion.div>
+      </div>
+    </section>
   );
 }

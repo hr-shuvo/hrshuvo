@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
 import { GradientText } from "@/components/primitives/GradientText";
 
 export function HeroSection() {
@@ -9,22 +8,39 @@ export function HeroSection() {
     <section
       id="hero"
       aria-label="Hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-16"
+      className="relative flex min-h-screen flex-col overflow-hidden pt-16"
     >
       {/* Warm background radial */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 50% at 70% 10%, rgba(245,158,11,0.10) 0%, transparent 60%)",
+            "radial-gradient(ellipse 60% 60% at 80% 20%, rgba(245,158,11,0.12) 0%, transparent 70%)",
         }}
       />
 
-      <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="max-w-4xl">
+      {/* Large background number — typographic texture */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-0 select-none leading-none text-[var(--border)] opacity-40"
+        style={{
+          fontSize: "clamp(18rem, 35vw, 40rem)",
+          fontWeight: 900,
+          lineHeight: 0.85,
+          letterSpacing: "-0.05em",
+          right: "-2vw",
+          top: "8vh",
+        }}
+      >
+        01
+      </div>
+
+      {/* Main content — left-anchored, pushed low */}
+      <div className="relative mt-auto flex-1 flex items-end pb-24 md:pb-32">
+        <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
           {/* Eyebrow */}
           <motion.p
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="mb-6 text-sm font-medium text-[var(--muted-color)]"
@@ -36,59 +52,70 @@ export function HeroSection() {
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="mb-8 font-extrabold leading-[1.05] tracking-tight text-[var(--foreground)]"
-            style={{ fontSize: "clamp(3rem, 7vw, 6.5rem)", fontWeight: 800 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+            className="mb-10 font-extrabold leading-[0.95] tracking-tight text-[var(--foreground)]"
+            style={{ fontSize: "clamp(3.5rem, 8vw, 7.5rem)", fontWeight: 800 }}
           >
             I left a job
             <br />
-            to build <GradientText>Ezdu.</GradientText>
+            to build{" "}
+            <GradientText>Ezdu.</GradientText>
           </motion.h1>
 
-          {/* Subtext */}
-          <motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-            className="mb-12 max-w-xl text-lg leading-relaxed text-[var(--muted-color)] sm:text-xl"
-          >
-            Ezdu is a gamified learning platform for academic education — mobile-first, AI-powered,
-            built by one person. Before that: OTA systems at A4Aero, school software at OnnoRokom,
-            500+ competitive programming problems. Two and a half years of professional experience.
-            One product that&apos;s live.
-          </motion.p>
-
-          {/* CTAs */}
+          {/* Bottom row: subtext + CTAs side by side */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.55 }}
-            className="flex flex-wrap items-center gap-4"
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+            className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between"
           >
-            <a
-              href="#journey"
-              className="inline-flex items-center rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-medium text-[var(--background)] hover:opacity-80 transition-opacity"
-            >
-              See the journey
-            </a>
-            <a
-              href="#ezdu"
-              className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-6 py-3 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--surface-alt)] transition-colors"
-            >
-              See Ezdu
-            </a>
+            <p className="max-w-sm text-base leading-relaxed text-[var(--muted-color)]">
+              Gamified learning platform, mobile-first, AI-powered, built by one
+              person. 500+ problems. Two live products. Two and a half years in.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#journey"
+                className="inline-flex items-center rounded-full bg-[var(--foreground)] px-6 py-3 text-sm font-medium text-[var(--background)] hover:opacity-80 transition-opacity"
+              >
+                See the journey
+              </a>
+              <a
+                href="#ezdu"
+                className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-6 py-3 text-sm font-medium text-[var(--foreground)] hover:bg-[var(--surface-alt)] transition-colors"
+              >
+                See Ezdu
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Pinned bottom stats bar */}
       <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[var(--muted-color)]"
-        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="relative border-t border-[var(--border)]"
       >
-        <ArrowDown size={20} />
+        <div className="mx-auto grid max-w-7xl grid-cols-3 divide-x divide-[var(--border)] px-6 sm:px-8 lg:px-12">
+          {[
+            { value: "2", label: "Live products" },
+            { value: "500+", label: "Problems solved" },
+            { value: "2.5yr", label: "Experience" },
+          ].map((stat) => (
+            <div key={stat.label} className="px-4 py-5 first:pl-0 last:pr-0 sm:px-8">
+              <p
+                className="font-extrabold leading-none text-[var(--foreground)]"
+                style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
+              >
+                {stat.value}
+              </p>
+              <p className="mt-1 text-xs text-[var(--muted-color)]">{stat.label}</p>
+            </div>
+          ))}
+        </div>
       </motion.div>
     </section>
   );

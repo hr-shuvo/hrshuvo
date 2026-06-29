@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { Section } from "@/components/primitives/Section";
-import { Container } from "@/components/primitives/Container";
 import { AnimatedSection } from "@/components/primitives/AnimatedSection";
 
 const principles = [
@@ -28,22 +27,6 @@ const principles = [
   },
 ];
 
-const containerVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, x: -16 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
-  },
-};
-
 export function PhilosophySection() {
   return (
     <Section
@@ -51,47 +34,58 @@ export function PhilosophySection() {
       aria-label="Engineering Philosophy"
       className="bg-[var(--surface-alt)]"
     >
-      <Container>
+      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+        {/* Header — left/right split */}
         <AnimatedSection>
-          <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
-            Convictions
-          </p>
-          <h2
-            className="mb-6 font-extrabold tracking-tight text-[var(--foreground)]"
-            style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
-          >
-            What I won&apos;t compromise on.
-          </h2>
-          <p className="mb-16 max-w-xl text-lg leading-relaxed text-[var(--muted-color)]">
-            These aren&apos;t guidelines I follow — they&apos;re convictions
-            shaped by building real systems that real people depend on.
-          </p>
+          <div className="mb-20 grid gap-8 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="mb-3 text-xs font-medium tracking-[0.2em] text-[var(--muted-color)] uppercase">
+                Convictions
+              </p>
+              <h2
+                className="font-extrabold leading-[0.95] tracking-tight text-[var(--foreground)]"
+                style={{ fontSize: "clamp(2.5rem, 5vw, 5rem)" }}
+              >
+                What I won&apos;t
+                <br />
+                compromise on.
+              </h2>
+            </div>
+            <div className="flex items-end">
+              <p className="text-lg leading-relaxed text-[var(--muted-color)]">
+                These aren&apos;t guidelines I follow — they&apos;re convictions
+                shaped by building real systems that real people depend on.
+              </p>
+            </div>
+          </div>
         </AnimatedSection>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid gap-px sm:grid-cols-2"
-        >
-          {principles.map((p) => (
+        {/* Principles — two column, statement large on left, body small on right */}
+        <div className="space-y-0">
+          {principles.map((p, i) => (
             <motion.div
               key={p.number}
-              variants={itemVariants}
-              className="group border-l-2 border-[var(--border)] bg-[var(--surface)] p-8 transition-colors duration-300 hover:border-[var(--color-accent)]"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: i * 0.07 }}
+              className="grid border-t border-[var(--border)] py-10 gap-4 lg:grid-cols-[3rem_1fr_1fr] lg:gap-16 lg:items-center"
             >
-              <p className="mb-4 font-mono text-xs text-[var(--color-accent)]">{p.number}</p>
-              <h3 className="mb-3 text-lg font-semibold text-[var(--foreground)]">
+              <span className="font-mono text-xs text-[var(--color-accent)]">{p.number}</span>
+              <h3
+                className="font-extrabold tracking-tight text-[var(--foreground)]"
+                style={{ fontSize: "clamp(1.4rem, 2.5vw, 2rem)" }}
+              >
                 {p.name}
               </h3>
-              <p className="text-sm leading-relaxed text-[var(--muted-color)]">
+              <p className="text-base leading-relaxed text-[var(--muted-color)]">
                 {p.body}
               </p>
             </motion.div>
           ))}
-        </motion.div>
-      </Container>
+          <div className="border-t border-[var(--border)]" />
+        </div>
+      </div>
     </Section>
   );
 }
