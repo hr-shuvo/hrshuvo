@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Building something early-stage or need someone who moves between product and engineering? Write to me.",
+  description: "Get in touch — email, GitHub, LinkedIn, or download my resume.",
 };
 
 function GitHubIcon({ size = 14 }: { size?: number }) {
@@ -16,7 +16,7 @@ function GitHubIcon({ size = 14 }: { size?: number }) {
 function LinkedInIcon({ size = 14 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 23.2 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
   );
 }
@@ -26,56 +26,39 @@ export default function ContactPage() {
     <div className="pt-14 min-h-screen flex flex-col">
       <div className="flex-1 mx-auto w-full max-w-7xl px-6 pb-24 pt-32 sm:px-8 md:pb-32 md:pt-40 lg:px-12 lg:pb-40 lg:pt-52">
 
-        {/* Opening — sparse, direct */}
         <div className="border-t border-[var(--border)] pt-14">
-          <p className="mb-6 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">
-            Get in touch
-          </p>
+          <p className="mb-6 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">Contact</p>
           <h1
             className="font-serif tracking-tight text-[var(--foreground)]"
-            style={{
-              fontSize: "clamp(2.8rem, 7vw, 7rem)",
-              fontWeight: 600,
-              lineHeight: 1.04,
-              letterSpacing: "-0.025em",
-              maxWidth: "14ch",
-            }}
+            style={{ fontSize: "clamp(2.8rem, 7vw, 7rem)", fontWeight: 600, lineHeight: 1.04, letterSpacing: "-0.025em", maxWidth: "14ch" }}
           >
-            Let&apos;s build something
-            {" "}
-            <em
-              style={{ fontStyle: "italic", fontWeight: 400, color: "var(--muted-color)" }}
-            >
+            Let&apos;s build something{" "}
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--muted-color)" }}>
               that matters.
             </em>
           </h1>
         </div>
 
-        {/* Context + contact */}
         <div className="mt-20 grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:items-end">
           <p className="max-w-sm text-sm leading-[1.95] text-[var(--muted-color)]">
-            If you&apos;re building something early-stage, working through a hard
-            technical problem, or need someone who can move between product and
-            engineering without losing context — write to me.
+            Building something early-stage, or need someone who can move between
+            product and engineering without losing context?
             <br /><br />
             Based in Dhaka. Available remotely.
           </p>
 
-          <div className="space-y-6">
+          <div className="space-y-7">
+            {/* Email */}
             <a
               href="mailto:hrshuvo207@gmail.com"
               className="block font-serif text-[var(--foreground)] hover:text-[var(--color-accent)] transition-colors duration-300"
-              style={{
-                fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
-                fontWeight: 400,
-                fontStyle: "italic",
-                letterSpacing: "-0.01em",
-              }}
+              style={{ fontSize: "clamp(1rem, 1.8vw, 1.4rem)", fontWeight: 400, fontStyle: "italic", letterSpacing: "-0.01em" }}
             >
               hrshuvo207@gmail.com
             </a>
 
-            <div className="flex items-center gap-6">
+            {/* Social links */}
+            <div className="flex items-center gap-6 flex-wrap">
               <a
                 href="https://github.com/hr-shuvo"
                 target="_blank"
@@ -95,8 +78,19 @@ export default function ContactPage() {
                 <LinkedInIcon size={13} />
                 LinkedIn
               </a>
-              <span className="text-[var(--border)]">·</span>
-              <span className="text-xs tracking-[0.08em] text-[var(--muted-color)]">Dhaka, BD</span>
+            </div>
+
+            {/* Resume */}
+            <div className="pt-2 border-t border-[var(--border)]">
+              <p className="text-xs tracking-[0.15em] text-[var(--muted-color)] uppercase mb-3">Resume</p>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs tracking-[0.08em] text-[var(--foreground)] border border-[var(--border)] px-4 py-2 hover:border-[var(--foreground)] transition-colors duration-200"
+              >
+                Download PDF
+              </a>
             </div>
           </div>
         </div>

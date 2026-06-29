@@ -76,12 +76,9 @@ export default function Home() {
           {/* Navigation hints */}
           <nav className="mt-14 flex flex-wrap gap-x-8 gap-y-3" aria-label="Explore">
             {[
-              { label: "Journey", href: "/journey" },
+              { label: "About", href: "/about" },
               { label: "Projects", href: "/projects" },
               { label: "Experience", href: "/experience" },
-              { label: "Education", href: "/education" },
-              { label: "Architecture", href: "/architecture" },
-              { label: "Philosophy", href: "/philosophy" },
               { label: "Contact", href: "/contact" },
             ].map((link) => (
               <Link

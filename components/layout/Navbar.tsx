@@ -6,13 +6,10 @@ import { useState } from "react";
 import { ThemeToggle } from "@/components/primitives/ThemeToggle";
 
 const links = [
-  { label: "Journey",      href: "/journey"      },
-  { label: "Projects",     href: "/projects"     },
-  { label: "Experience",   href: "/experience"   },
-  { label: "Education",    href: "/education"    },
-  { label: "Architecture", href: "/architecture" },
-  { label: "Philosophy",   href: "/philosophy"   },
-  { label: "Contact",      href: "/contact"      },
+  { label: "About",      href: "/about"      },
+  { label: "Projects",   href: "/projects"   },
+  { label: "Experience", href: "/experience" },
+  { label: "Contact",    href: "/contact"    },
 ];
 
 export function Navbar() {
@@ -37,7 +34,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center gap-7" aria-label="Main navigation">
             {links.map((link) => {
               const active = pathname === link.href || pathname.startsWith(link.href + "/");
               return (
@@ -61,36 +58,24 @@ export function Navbar() {
 
           <div className="flex items-center gap-4">
             <ThemeToggle />
-
-            {/* Mobile hamburger */}
             <button
               className="md:hidden flex flex-col gap-1.5 p-1 text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors"
               aria-label={open ? "Close menu" : "Open menu"}
               onClick={() => setOpen((v) => !v)}
             >
-              <span
-                className="block w-5 h-px bg-current transition-transform duration-200"
-                style={{ transform: open ? "translateY(4px) rotate(45deg)" : "none" }}
-              />
-              <span
-                className="block w-5 h-px bg-current transition-opacity duration-200"
-                style={{ opacity: open ? 0 : 1 }}
-              />
-              <span
-                className="block w-5 h-px bg-current transition-transform duration-200"
-                style={{ transform: open ? "translateY(-4px) rotate(-45deg)" : "none" }}
-              />
+              <span className="block w-5 h-px bg-current transition-transform duration-200"
+                style={{ transform: open ? "translateY(4px) rotate(45deg)" : "none" }} />
+              <span className="block w-5 h-px bg-current transition-opacity duration-200"
+                style={{ opacity: open ? 0 : 1 }} />
+              <span className="block w-5 h-px bg-current transition-transform duration-200"
+                style={{ transform: open ? "translateY(-4px) rotate(-45deg)" : "none" }} />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile menu overlay */}
       {open && (
-        <div
-          className="fixed inset-0 z-40 flex flex-col pt-14 bg-[var(--background)] md:hidden"
-          aria-label="Mobile navigation"
-        >
+        <div className="fixed inset-0 z-40 flex flex-col pt-14 bg-[var(--background)] md:hidden">
           <nav className="flex flex-col px-6 py-10 gap-1">
             {links.map((link) => {
               const active = pathname === link.href || pathname.startsWith(link.href + "/");
