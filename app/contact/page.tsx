@@ -23,10 +23,14 @@ function LinkedInIcon({ size = 14 }: { size?: number }) {
 
 export default function ContactPage() {
   return (
-    <div className="pt-14">
-      <div className="mx-auto max-w-7xl px-6 pb-28 pt-32 sm:px-8 md:pb-36 md:pt-40 lg:px-12 lg:pb-44 lg:pt-48">
-        <div className="border-t border-[var(--border)] pt-14">
+    <div className="pt-14 min-h-screen flex flex-col">
+      <div className="flex-1 mx-auto w-full max-w-7xl px-6 pb-24 pt-32 sm:px-8 md:pb-32 md:pt-40 lg:px-12 lg:pb-40 lg:pt-52">
 
+        {/* Opening — sparse, direct */}
+        <div className="border-t border-[var(--border)] pt-14">
+          <p className="mb-6 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">
+            Get in touch
+          </p>
           <h1
             className="font-serif tracking-tight text-[var(--foreground)]"
             style={{
@@ -34,70 +38,69 @@ export default function ContactPage() {
               fontWeight: 600,
               lineHeight: 1.04,
               letterSpacing: "-0.025em",
-              maxWidth: "18ch",
+              maxWidth: "14ch",
             }}
           >
-            Let&apos;s build
-            <br />
-            something
-            <br />
+            Let&apos;s build something
+            {" "}
             <em
-              className="font-serif"
               style={{ fontStyle: "italic", fontWeight: 400, color: "var(--muted-color)" }}
             >
               that matters.
             </em>
           </h1>
+        </div>
 
-          <div className="mt-16 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-            <p className="max-w-sm text-sm leading-[1.9] text-[var(--muted-color)]">
-              If you&apos;re building something early-stage, working through a
-              hard technical problem, or need someone who can move between
-              product and engineering without losing context — write to me.
-              Based in Dhaka. Available remotely.
-            </p>
+        {/* Context + contact */}
+        <div className="mt-20 grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:items-end">
+          <p className="max-w-sm text-sm leading-[1.95] text-[var(--muted-color)]">
+            If you&apos;re building something early-stage, working through a hard
+            technical problem, or need someone who can move between product and
+            engineering without losing context — write to me.
+            <br /><br />
+            Based in Dhaka. Available remotely.
+          </p>
 
-            <div className="flex flex-col gap-5">
+          <div className="space-y-6">
+            <a
+              href="mailto:hrshuvo207@gmail.com"
+              className="block font-serif text-[var(--foreground)] hover:text-[var(--color-accent)] transition-colors duration-300"
+              style={{
+                fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
+                fontWeight: 400,
+                fontStyle: "italic",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              hrshuvo207@gmail.com
+            </a>
+
+            <div className="flex items-center gap-6">
               <a
-                href="mailto:hrshuvo207@gmail.com"
-                className="font-serif text-[var(--foreground)] hover:text-[var(--color-accent)] transition-colors duration-300"
-                style={{
-                  fontSize: "clamp(1rem, 1.8vw, 1.4rem)",
-                  fontWeight: 400,
-                  fontStyle: "italic",
-                  letterSpacing: "-0.01em",
-                }}
+                href="https://github.com/hr-shuvo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs tracking-[0.08em] text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors duration-300"
               >
-                hrshuvo207@gmail.com
+                <GitHubIcon size={13} />
+                GitHub
               </a>
-
-              <div className="flex items-center gap-6">
-                <a
-                  href="https://github.com/hr-shuvo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs tracking-[0.08em] text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors duration-300"
-                >
-                  <GitHubIcon size={13} />
-                  GitHub
-                </a>
-                <span className="text-[var(--border)]">·</span>
-                <a
-                  href="https://linkedin.com/in/hrshuvo9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-xs tracking-[0.08em] text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors duration-300"
-                >
-                  <LinkedInIcon size={13} />
-                  LinkedIn
-                </a>
-                <span className="text-[var(--border)]">·</span>
-                <span className="text-xs tracking-[0.08em] text-[var(--muted-color)]">Dhaka, BD</span>
-              </div>
+              <span className="text-[var(--border)]">·</span>
+              <a
+                href="https://linkedin.com/in/hrshuvo9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs tracking-[0.08em] text-[var(--muted-color)] hover:text-[var(--foreground)] transition-colors duration-300"
+              >
+                <LinkedInIcon size={13} />
+                LinkedIn
+              </a>
+              <span className="text-[var(--border)]">·</span>
+              <span className="text-xs tracking-[0.08em] text-[var(--muted-color)]">Dhaka, BD</span>
             </div>
           </div>
-
         </div>
+
       </div>
     </div>
   );

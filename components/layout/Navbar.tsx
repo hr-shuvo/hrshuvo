@@ -7,10 +7,11 @@ import { ThemeToggle } from "@/components/primitives/ThemeToggle";
 
 const links = [
   { label: "Journey",      href: "/journey"      },
-  { label: "Projects",     href: "/projects"      },
-  { label: "Architecture", href: "/architecture"  },
-  { label: "Philosophy",   href: "/philosophy"    },
-  { label: "Contact",      href: "/contact"       },
+  { label: "Projects",     href: "/projects"     },
+  { label: "Architecture", href: "/architecture" },
+  { label: "Philosophy",   href: "/philosophy"   },
+  { label: "Education",    href: "/education"    },
+  { label: "Contact",      href: "/contact"      },
 ];
 
 export function Navbar() {
@@ -28,24 +29,30 @@ export function Navbar() {
           <Link
             href="/"
             onClick={() => setOpen(false)}
-            className="font-serif text-base font-medium tracking-tight text-[var(--foreground)] hover:text-[var(--foreground)]/70 transition-colors"
+            className="font-serif text-base font-medium tracking-tight text-[var(--foreground)] hover:text-[var(--muted-color)] transition-colors duration-200"
             aria-label="Shuvo — home"
           >
             Shuvo
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-7" aria-label="Main navigation">
+          <nav className="hidden md:flex items-center gap-6" aria-label="Main navigation">
             {links.map((link) => {
               const active = pathname === link.href || pathname.startsWith(link.href + "/");
               return (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-xs tracking-[0.08em] transition-colors duration-200"
+                  className="relative text-xs tracking-[0.08em] transition-colors duration-200 py-1"
                   style={{ color: active ? "var(--foreground)" : "var(--muted-color)" }}
                 >
                   {link.label}
+                  {active && (
+                    <span
+                      className="absolute bottom-0 left-0 right-0 h-px"
+                      style={{ background: "var(--color-accent)" }}
+                    />
+                  )}
                 </Link>
               );
             })}
