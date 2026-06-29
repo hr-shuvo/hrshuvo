@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Section } from "@/components/primitives/Section";
-import { AnimatedSection } from "@/components/primitives/AnimatedSection";
 
 const principles = [
   {
@@ -25,65 +23,85 @@ const principles = [
 
 export function PhilosophySection() {
   return (
-    <Section id="philosophy" aria-label="Engineering Philosophy">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+    <section id="philosophy" aria-label="Engineering Philosophy" className="relative">
 
-        {/* Section opening */}
-        <AnimatedSection>
-          <div className="h-px bg-[var(--border)] mb-14" />
-          <div className="mb-20 grid gap-8 lg:grid-cols-[1fr_40%] lg:gap-20">
-            <h2
-              className="font-serif tracking-tight text-[var(--foreground)]"
-              style={{
-                fontSize: "clamp(2.4rem, 5vw, 4.5rem)",
-                fontWeight: 600,
-                lineHeight: 1.05,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              How I think
-              <br />
-              <em className="font-serif" style={{ fontStyle: "italic", fontWeight: 400, color: "var(--muted-color)" }}>
-                about the work.
-              </em>
-            </h2>
-            <div className="flex items-end">
-              <p className="text-sm leading-[1.8] text-[var(--muted-color)]">
-                Not principles I recite — patterns I noticed after things went
-                wrong and I had to figure out why.
-              </p>
-            </div>
-          </div>
-        </AnimatedSection>
+      {/* Chapter header — centered, quiet */}
+      <div className="mx-auto max-w-3xl px-6 pb-0 pt-32 text-center sm:px-8 md:pt-40 lg:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="mb-8 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">
+            Convictions
+          </p>
+          <h2
+            className="font-serif tracking-tight text-[var(--foreground)]"
+            style={{
+              fontSize: "clamp(2.2rem, 5vw, 4.2rem)",
+              fontWeight: 600,
+              lineHeight: 1.08,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            How I think
+            <br />
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--muted-color)" }}>
+              about the work.
+            </em>
+          </h2>
+          <p className="mx-auto mt-8 max-w-sm text-sm leading-[1.85] text-[var(--muted-color)]">
+            Not principles I recite — patterns I noticed after things went wrong
+            and I had to figure out why.
+          </p>
+        </motion.div>
+      </div>
 
-        {/* Principles — no counters, two-column serif/body layout */}
-        <div>
-          {principles.map((p, i) => (
+      {/* Each principle — full horizontal width, alternating composition */}
+      <div className="mt-24">
+        {principles.map((p, i) => {
+          const isEven = i % 2 === 0;
+          return (
             <motion.div
               key={p.name}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.06 }}
-              className="grid border-t border-[var(--border)] py-10 gap-5 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:py-12 lg:items-start"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+              className="border-t border-[var(--border)]"
             >
-              <h3
-                className="font-serif text-[var(--foreground)]"
-                style={{
-                  fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
-                  fontWeight: 500,
-                  lineHeight: 1.35,
-                  letterSpacing: "-0.015em",
-                }}
-              >
-                {p.name}
-              </h3>
-              <p className="text-sm leading-[1.85] text-[var(--muted-color)]">{p.body}</p>
+              <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+                <div
+                  className={`py-14 lg:py-20 grid gap-8 lg:gap-20 lg:items-start ${
+                    isEven
+                      ? "lg:grid-cols-[55%_1fr]"
+                      : "lg:grid-cols-[1fr_55%]"
+                  }`}
+                >
+                  <h3
+                    className={`font-serif text-[var(--foreground)] ${isEven ? "" : "lg:order-2"}`}
+                    style={{
+                      fontSize: "clamp(1.3rem, 2.5vw, 2rem)",
+                      fontWeight: 500,
+                      lineHeight: 1.3,
+                      letterSpacing: "-0.015em",
+                    }}
+                  >
+                    {p.name}
+                  </h3>
+                  <p
+                    className={`text-sm leading-[1.9] text-[var(--muted-color)] ${isEven ? "lg:pt-1.5" : "lg:order-1 lg:pt-1.5"}`}
+                  >
+                    {p.body}
+                  </p>
+                </div>
+              </div>
             </motion.div>
-          ))}
-          <div className="border-t border-[var(--border)]" />
-        </div>
+          );
+        })}
+        <div className="border-t border-[var(--border)]" />
       </div>
-    </Section>
+    </section>
   );
 }

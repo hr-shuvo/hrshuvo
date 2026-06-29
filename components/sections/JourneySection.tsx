@@ -1,77 +1,87 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Section } from "@/components/primitives/Section";
 import { journeyItems } from "@/lib/data/journey";
 
 export function JourneySection() {
   return (
-    <Section id="journey" aria-label="My Journey">
-      {/* Section opening */}
-      <div className="mx-auto mb-20 max-w-7xl px-6 sm:px-8 lg:px-12">
+    <section id="journey" aria-label="My Journey" className="relative">
+
+      {/* Chapter opening — wide, centered, breathing */}
+      <div className="mx-auto max-w-3xl px-6 pb-4 pt-32 text-center sm:px-8 md:pt-40 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="h-px bg-[var(--border)] mb-14" />
-          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
-            <h2
-              className="font-serif tracking-tight text-[var(--foreground)]"
-              style={{
-                fontSize: "clamp(2.4rem, 5vw, 4.5rem)",
-                fontWeight: 600,
-                lineHeight: 1.05,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              How I got here.
-              <br />
-              <em className="font-serif" style={{ fontStyle: "italic", color: "var(--muted-color)", fontWeight: 400 }}>
-                The real version.
-              </em>
-            </h2>
-            <p className="max-w-60 text-sm leading-relaxed text-[var(--muted-color)] lg:text-right lg:pb-1">
-              From the first C program to two live products. The moments worth writing down.
-            </p>
-          </div>
+          <p className="mb-8 text-xs tracking-[0.3em] text-[var(--muted-color)] uppercase">
+            How I got here
+          </p>
+          <h2
+            className="font-serif tracking-tight text-[var(--foreground)]"
+            style={{
+              fontSize: "clamp(2.2rem, 5vw, 4.2rem)",
+              fontWeight: 600,
+              lineHeight: 1.08,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Not a résumé.
+            <br />
+            <em style={{ fontStyle: "italic", fontWeight: 400, color: "var(--muted-color)" }}>
+              A sequence of moments.
+            </em>
+          </h2>
+          <p className="mx-auto mt-8 max-w-sm text-sm leading-[1.85] text-[var(--muted-color)]">
+            From the first C program to two live products. The moments worth writing down.
+          </p>
         </motion.div>
       </div>
 
-      {/* Timeline entries — year as typographic anchor, no tags column */}
-      <div>
+      {/* Entries — full bleed, each one a beat */}
+      <div className="mt-24">
         {journeyItems.map((item, i) => (
           <motion.div
             key={item.year}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.04 }}
-            className="border-t border-[var(--border)] group"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
+            className="border-t border-[var(--border)]"
           >
             <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-              <div className="grid py-10 lg:grid-cols-[10rem_1fr] lg:gap-16 lg:py-14">
+              <div className="py-12 lg:py-16">
 
-                {/* Year — de-emphasised until hover */}
-                <div className="mb-4 lg:mb-0 lg:pt-0.5">
-                  <span
-                    className="font-serif font-medium leading-none tracking-tight text-[var(--border)] transition-colors duration-300 group-hover:text-[var(--color-accent)]"
-                    style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)", letterSpacing: "-0.03em" }}
-                  >
-                    {item.year}
-                  </span>
-                </div>
+                {/* Year — large, typographic weight, pulls left */}
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.03 }}
+                  className="font-serif mb-6 font-medium text-[var(--surface-alt)] select-none"
+                  style={{
+                    fontSize: "clamp(3rem, 6vw, 5rem)",
+                    lineHeight: 1,
+                    letterSpacing: "-0.04em",
+                  }}
+                >
+                  {item.year}
+                </motion.p>
 
-                {/* Content */}
-                <div>
+                {/* Content — narrow, left-aligned, generous leading */}
+                <div className="max-w-2xl">
                   <h3
-                    className="font-serif mb-4 font-medium text-[var(--foreground)] leading-snug"
-                    style={{ fontSize: "clamp(1rem, 1.6vw, 1.15rem)", letterSpacing: "-0.01em" }}
+                    className="font-serif mb-5 text-[var(--foreground)] leading-snug"
+                    style={{
+                      fontSize: "clamp(1.05rem, 1.8vw, 1.25rem)",
+                      fontWeight: 500,
+                      letterSpacing: "-0.01em",
+                    }}
                   >
                     {item.title}
                   </h3>
-                  <p className="max-w-prose text-sm leading-[1.8] text-[var(--muted-color)]">
+                  <p className="text-sm leading-[1.9] text-[var(--muted-color)]">
                     {item.body}
                   </p>
                 </div>
@@ -81,6 +91,6 @@ export function JourneySection() {
         ))}
         <div className="border-t border-[var(--border)]" />
       </div>
-    </Section>
+    </section>
   );
 }
