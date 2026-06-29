@@ -48,7 +48,7 @@ export default function Home() {
               letterSpacing: "-0.035em",
             }}
           >
-            Shuvo
+            H R Shuvo
           </h1>
 
           {/* Title */}
@@ -61,7 +61,7 @@ export default function Home() {
               letterSpacing: "-0.01em",
             }}
           >
-            Software engineer. Product builder.
+            Turning ideas into products.
           </p>
 
           {/* Tagline */}
@@ -69,8 +69,7 @@ export default function Home() {
             className="mt-8 max-w-xs text-[var(--muted-color)]"
             style={{ fontSize: "clamp(0.82rem, 1.2vw, 0.92rem)", lineHeight: 1.8 }}
           >
-            I left a stable job to find out if I could build something people need.
-            Two products in production. Still finding out.
+            Designing, building and refining software from concept to production.
           </p>
 
           {/* Navigation hints */}

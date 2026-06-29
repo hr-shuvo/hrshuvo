@@ -125,16 +125,16 @@ export default function AboutPage() {
                 style={{ width: 64, height: 48, padding: "5px 8px" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/mu-logo.png" alt="Metropolitan University" className="w-full h-full object-contain" />
+                <img src="/diu-logo.png" alt="Daffodil International University" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h2
                   className="font-serif text-[var(--foreground)] font-semibold"
                   style={{ fontSize: "1.05rem", letterSpacing: "-0.01em" }}
                 >
-                  Metropolitan University
+                  Daffodil International University
                 </h2>
-                <p className="text-xs text-[var(--muted-color)] mt-0.5">Sylhet, Bangladesh</p>
+                <p className="text-xs text-[var(--muted-color)] mt-0.5">Dhaka, Bangladesh</p>
                 <div className="mt-3 flex items-center gap-2 flex-wrap">
                   <span
                     className="text-xs px-2.5 py-1"
@@ -143,7 +143,7 @@ export default function AboutPage() {
                     B.Sc. Computer Science &amp; Engineering
                   </span>
                   <span className="text-xs border border-[var(--border)] px-2.5 py-1 text-[var(--muted-color)]">
-                    2019 – 2023
+                    2016 – 2021
                   </span>
                 </div>
                 <p className="mt-3 text-xs leading-[1.8] text-[var(--muted-color)] max-w-sm">
