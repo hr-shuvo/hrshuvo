@@ -24,7 +24,7 @@ const diagrams = [
         {/* Mobile App — primary, accent border */}
         <rect x="80" y="14" width="160" height="52" rx="10" fill="var(--surface-alt)" stroke="#6366f1" strokeWidth="2" />
         <text x="160" y="36" textAnchor="middle" fontSize="12" fontWeight="600" fill="var(--foreground)" fontFamily="system-ui, sans-serif">Mobile App</text>
-        <text x="160" y="52" textAnchor="middle" fontSize="10" fill="#6366f1" fontFamily="system-ui, sans-serif">React Native · Primary</text>
+        <text x="160" y="52" textAnchor="middle" fontSize="10" fill="#6366f1" fontFamily="system-ui, sans-serif">Flutter · Primary</text>
 
         {/* Web App — secondary */}
         <rect x="380" y="14" width="160" height="52" rx="10" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />

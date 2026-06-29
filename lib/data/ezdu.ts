@@ -39,7 +39,7 @@ export const ezduData = {
       title: "Cross-Platform Consistency",
       description:
         "The React Native mobile app is the primary client — the web app is a companion surface. Both must feel native to their platform while sharing the same API and data layer. Progress, streaks, and state must be identical regardless of which surface the user is on.",
-      solved: "Single .NET Core API consumed by both clients, shared business logic, platform-specific UX layers",
+      solved: "Single .NET Core API consumed by both clients, shared business logic, Flutter for mobile and Next.js for web",
     },
     {
       title: "Real-time Progress Sync",
@@ -59,7 +59,7 @@ export const ezduData = {
 
   roadmap: [
     { phase: "Now", milestone: "Core learning engine live — web + mobile apps in active development" },
-    { phase: "Q3 2025", milestone: "Mobile app (React Native) public launch — the primary Ezdu experience" },
+    { phase: "Q3 2025", milestone: "Flutter mobile app public launch — the primary Ezdu experience" },
     { phase: "Q4 2025", milestone: "Teacher dashboard and custom course creation" },
     { phase: "2026", milestone: "Institutional partnerships and offline-first mobile mode" },
   ],

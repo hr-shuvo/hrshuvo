@@ -29,7 +29,7 @@ export const projects: Project[] = [
       ".NET Core API + Next.js frontend, MySQL for persistence, AWS S3 for content storage, LLM integration for content generation",
     outcome:
       "A fully functional EdTech platform live at ezdu.net, serving academic learners with AI-assisted content and gamified progression.",
-    tech: [".NET Core", "Next.js", "MySQL", "AWS", "S3", "LLM", "TypeScript"],
+    tech: [".NET Core", "Next.js", "Flutter", "MySQL", "AWS", "S3", "LLM", "TypeScript"],
     links: [{ label: "Visit Ezdu", url: "https://ezdu.net" }],
     featured: true,
   },
@@ -59,6 +59,22 @@ export const projects: Project[] = [
     ],
     links: [{ label: "Visit Better IELTS", url: "https://betterielts.com" }],
     featured: true,
+  },
+  {
+    id: "school-management",
+    title: "School Management System",
+    tagline: "End-to-end school operations platform",
+    problem:
+      "Schools were managing students, attendance, and grades through disconnected tools — spreadsheets, paper records, and manual processes that didn't talk to each other.",
+    solution:
+      "Built a unified school management system covering student registration, daily attendance tracking, grade management, and reporting — giving teachers and administrators one place to manage everything.",
+    architecture:
+      ".NET Core MVC backend, MSSQL for data, JavaScript + Bootstrap for responsive UI, Selenium for automated test coverage",
+    outcome:
+      "A production system deployed at OnnoRokom Software Ltd, used by real schools with measurable reduction in administrative overhead and manual data entry.",
+    tech: [".NET Core MVC", "MSSQL", "JavaScript", "Bootstrap", "Selenium", "Git"],
+    links: [],
+    featured: false,
   },
   {
     id: "ota-system",

@@ -92,7 +92,7 @@ export function EzduSection() {
                 {/* Mobile App — primary */}
                 <rect x="60" y="10" width="140" height="48" rx="8" fill="var(--surface-alt)" stroke="#6366f1" strokeWidth="2" />
                 <text x="130" y="31" textAnchor="middle" fontSize="11" fontWeight="600" fill="var(--foreground)" fontFamily="system-ui">Mobile App</text>
-                <text x="130" y="47" textAnchor="middle" fontSize="9" fill="#6366f1" fontFamily="system-ui">React Native · Primary</text>
+                <text x="130" y="47" textAnchor="middle" fontSize="9" fill="#6366f1" fontFamily="system-ui">Flutter · Primary</text>
 
                 {/* Web App — secondary */}
                 <rect x="280" y="10" width="140" height="48" rx="8" fill="var(--surface-alt)" stroke="var(--border)" strokeWidth="1" />
